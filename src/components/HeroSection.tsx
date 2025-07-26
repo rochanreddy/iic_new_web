@@ -13,14 +13,6 @@ const HeroSection: React.FC = () => (
     <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
       Empowering the next generation of innovators through cutting-edge technology, collaborative research, and entrepreneurial excellence.
     </p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:scale-105">
-        Join Us
-      </button>
-      <button className="border border-slate-300 text-slate-700 px-8 py-3 rounded-full font-medium hover:bg-white/50 transition-all duration-300">
-        Explore Events
-      </button>
-    </div>
   </section>
 );
 

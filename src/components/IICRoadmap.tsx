@@ -6,6 +6,7 @@ import {
   useInView,
 } from "framer-motion";
 import { Lightbulb, Users, Briefcase, Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface TimelineEntry {
   title: string;
@@ -153,6 +154,8 @@ const GoalCard = ({
 };
 
 const IICRoadmap = () => {
+  const navigate = useNavigate();
+  
   const roadmapData: TimelineEntry[] = [
     {
       title: "Empower Student Innovators",
@@ -169,26 +172,44 @@ const IICRoadmap = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800"
+              className="bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 p-6 rounded-xl border-2 border-blue-300 dark:border-blue-600 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h5 className="font-medium text-blue-900 dark:text-blue-100 mb-2">Key Initiatives</h5>
-              <ul className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
-                <li>• Idea incubation workshops</li>
-                <li>• Prototype development support</li>
-                <li>• Patent filing assistance</li>
+              <h5 className="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">Key Initiatives</h5>
+              <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2 font-medium">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
+                  Idea incubation workshops
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
+                  Prototype development support
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
+                  Patent filing assistance
+                </li>
               </ul>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-purple-50 dark:bg-purple-950/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800"
+              className="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/40 dark:to-purple-800/40 p-6 rounded-xl border-2 border-purple-300 dark:border-purple-600 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <h5 className="font-medium text-purple-900 dark:text-purple-100 mb-2">Expected Outcomes</h5>
-              <ul className="text-sm text-purple-700 dark:text-purple-300 space-y-1">
-                <li>• 50+ student projects annually</li>
-                <li>• 10+ patents filed</li>
-                <li>• Innovation mindset development</li>
+              <h5 className="font-bold text-purple-900 dark:text-purple-100 mb-3 text-lg">Expected Outcomes</h5>
+              <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-2 font-medium">
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-600 dark:bg-purple-400 rounded-full"></div>
+                  50+ student projects annually
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-600 dark:bg-purple-400 rounded-full"></div>
+                  10+ patents filed
+                </li>
+                <li className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-600 dark:bg-purple-400 rounded-full"></div>
+                  Innovation mindset development
+                </li>
               </ul>
             </motion.div>
           </div>
@@ -209,21 +230,21 @@ const IICRoadmap = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/20 dark:to-blue-950/20 p-6 rounded-xl border border-green-200 dark:border-green-800"
+            className="bg-gradient-to-br from-green-100 via-blue-100 to-teal-100 dark:from-green-900/40 dark:via-blue-900/40 dark:to-teal-900/40 p-8 rounded-xl border-2 border-green-300 dark:border-green-600 shadow-xl hover:shadow-2xl transition-all duration-300"
           >
-            <h5 className="font-semibold text-green-900 dark:text-green-100 mb-3">Partnership Programs</h5>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">25+</div>
-                <div className="text-sm text-green-700 dark:text-green-300">Industry Partners</div>
+            <h5 className="font-bold text-green-900 dark:text-green-100 mb-4 text-xl">Partnership Programs</h5>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-green-200 dark:border-green-700 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-3xl font-bold text-green-700 dark:text-green-300 mb-1">25+</div>
+                <div className="text-sm font-semibold text-green-800 dark:text-green-200">Industry Partners</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">100+</div>
-                <div className="text-sm text-blue-700 dark:text-blue-300">Mentors Network</div>
+              <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-blue-200 dark:border-blue-700 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-1">100+</div>
+                <div className="text-sm font-semibold text-blue-800 dark:text-blue-200">Mentors Network</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">15+</div>
-                <div className="text-sm text-purple-700 dark:text-purple-300">Collaboration Projects</div>
+              <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-purple-200 dark:border-purple-700 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-3xl font-bold text-purple-700 dark:text-purple-300 mb-1">15+</div>
+                <div className="text-sm font-semibold text-purple-800 dark:text-purple-200">Collaboration Projects</div>
               </div>
             </div>
           </motion.div>
@@ -363,9 +384,10 @@ const IICRoadmap = () => {
               Be part of our mission to create the next generation of innovators and entrepreneurs.
             </p>
             <motion.button
+              onClick={() => navigate('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-shadow"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-shadow cursor-pointer"
             >
               Get Involved
             </motion.button>
