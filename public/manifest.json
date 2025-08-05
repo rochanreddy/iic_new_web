@@ -1,0 +1,27 @@
+{
+  "name": "Innovation Incubation Council",
+  "short_name": "IIC",
+  "description": "The Innovation & Incubation Council - Empowering the next generation of innovators",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/heroSection/image.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/heroSection/image.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+} 
