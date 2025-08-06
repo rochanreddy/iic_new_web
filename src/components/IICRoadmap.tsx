@@ -342,7 +342,7 @@ const IICRoadmap = () => {
             className="bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-orange-950/20 dark:via-red-950/20 dark:to-pink-950/20 p-6 rounded-xl border border-orange-200 dark:border-orange-800"
           >
             <h5 className="font-semibold text-orange-900 dark:text-orange-100 mb-4">Incubation Pipeline</h5>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-2">
                   <Lightbulb className="w-6 h-6 text-white" />
@@ -356,13 +356,6 @@ const IICRoadmap = () => {
                 </div>
                 <div className="text-sm font-medium text-foreground">Validation</div>
                 <div className="text-xs text-muted-foreground mt-1">10+ MVPs</div>
-              </div>
-              <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Briefcase className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-sm font-medium text-foreground">Development</div>
-                <div className="text-xs text-muted-foreground mt-1">5+ Prototypes</div>
               </div>
               <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">

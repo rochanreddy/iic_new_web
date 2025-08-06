@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatedTabs } from "./ui/animated-tabs";
 import { ChevronDown, Menu, X } from 'lucide-react';
@@ -21,6 +21,16 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const [isIEDropdownOpen, setIsIEDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const dropdownTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <nav className="w-full fixed top-0 left-0 z-20 bg-white/10 backdrop-blur-md border-b border-slate-200/20">
@@ -44,24 +54,57 @@ const Navbar: React.FC = () => {
           </Link>
           
           {/* I&E Dropdown */}
-          <div className="relative">
+          <div 
+            className="relative"
+            onMouseEnter={() => {
+              if (dropdownTimeoutRef.current) {
+                clearTimeout(dropdownTimeoutRef.current);
+              }
+              setIsIEDropdownOpen(true);
+            }}
+            onMouseLeave={() => {
+              dropdownTimeoutRef.current = setTimeout(() => {
+                setIsIEDropdownOpen(false);
+              }, 200);
+            }}
+          >
             <button
-              onClick={() => setIsIEDropdownOpen(!isIEDropdownOpen)}
-              onBlur={() => setTimeout(() => setIsIEDropdownOpen(false), 150)}
-              className="flex items-center gap-1 text-sm font-medium transition-colors hover:text-blue-600 text-gray-700 hover:text-blue-600"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsIEDropdownOpen(!isIEDropdownOpen);
+              }}
+              className="flex items-center gap-1 text-sm font-medium transition-colors text-gray-700 hover:text-blue-600"
             >
               I&E
               <ChevronDown className={`w-4 h-4 transition-transform ${isIEDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             
             {isIEDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <div 
+                className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+                onMouseEnter={() => {
+                  if (dropdownTimeoutRef.current) {
+                    clearTimeout(dropdownTimeoutRef.current);
+                  }
+                }}
+                onMouseLeave={() => {
+                  dropdownTimeoutRef.current = setTimeout(() => {
+                    setIsIEDropdownOpen(false);
+                  }, 200);
+                }}
+              >
                 {ieDropdownItems.map((item, index) => (
                   <Link
                     key={index}
                     to={item.path}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    onClick={() => setIsIEDropdownOpen(false)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (dropdownTimeoutRef.current) {
+                        clearTimeout(dropdownTimeoutRef.current);
+                      }
+                      setIsIEDropdownOpen(false);
+                    }}
                   >
                     {item.label}
                   </Link>

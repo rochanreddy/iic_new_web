@@ -9,7 +9,7 @@ import OptimizedImage from './ui/OptimizedImage';
 
 const carouselItems = [
   {
-    image: '/images/heroSection/image.png',
+    image: '/images/heroSection/WhatsApp Image 2025-08-05 at 15.37.16_bd44757e.jpg',
     title: 'IIC Innovation Hub',
     desc: 'Our state-of-the-art innovation center where ideas come to life.'
   },

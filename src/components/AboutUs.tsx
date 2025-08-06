@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion"
-import { Eye, Target, Lightbulb, Users, Award, TrendingUp, Sparkles, ArrowRight, CheckCircle } from "lucide-react"
+import { Eye, Target, Lightbulb, Users, Award, TrendingUp, Sparkles, ArrowRight, CheckCircle, Handshake, Network, Briefcase } from "lucide-react"
 import { Button } from "./ui/button"
 import { useNavigate } from "react-router-dom"
 
@@ -39,14 +39,28 @@ function VisionMissionItem({ icon, title, description, features, delay }: Vision
         {title}
       </motion.h3>
       
-      <motion.p 
+      <motion.div 
         className="text-gray-600 leading-relaxed mb-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay + 0.3 }}
       >
-        {description}
-      </motion.p>
+        {title === "Mission" ? (
+          <div className="space-y-4">
+            {description.split('||').map((mission, index) => {
+              const [missionTitle, missionText] = mission.split('|');
+              return (
+                <div key={index} className="border-l-4 border-blue-500 pl-4">
+                  <h4 className="font-semibold text-gray-800 mb-2">{missionTitle}</h4>
+                  <p className="text-gray-600">{missionText}</p>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p>{description}</p>
+        )}
+      </motion.div>
       
       <motion.div 
         className="space-y-3"
@@ -137,8 +151,10 @@ export function IICAboutSection() {
   const navigate = useNavigate()
   const sectionRef = useRef<HTMLDivElement>(null)
   const statsRef = useRef<HTMLDivElement>(null)
+  const partnershipRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: false, amount: 0.1 })
   const isStatsInView = useInView(statsRef, { once: false, amount: 0.3 })
+  const isPartnershipInView = useInView(partnershipRef, { once: false, amount: 0.3 })
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -173,33 +189,38 @@ export function IICAboutSection() {
   const visionMissionData = [
     {
       icon: <Eye className="w-8 h-8" />,
-      title: "Our Vision",
-      description: "To be the leading innovation and incubation center that transforms groundbreaking ideas into successful ventures, fostering a culture of entrepreneurship and technological advancement.",
+      title: "Vision",
+      description: "To be a leading hub of innovation and entrepreneurship that empowers engineering and management students to transform ideas into impactful solutions, driving technological advancement and societal progress globally.",
       features: [
-        "Global recognition as innovation hub",
-        "Sustainable technology solutions",
-        "Empowering next-gen entrepreneurs",
-        "Creating lasting societal impact"
+        "Empowering engineering & management students",
+        "Transforming ideas into impactful solutions",
+        "Driving technological advancement",
+        "Creating global societal progress"
       ]
     },
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Our Mission",
-      description: "We provide comprehensive support, resources, and mentorship to startups and innovators, enabling them to develop cutting-edge solutions that address real-world challenges and drive economic growth.",
+      title: "Mission",
+      description: "Mission 1:|Foster a culture of creativity and innovation by providing state-of-the-art resources, mentorship, experiential learning, and collaborative spaces for both students and faculty.||Mission 2:|Encourage entrepreneurial thinking through outreach and inclusivity programs, workshops, incubation, hackathons, and industry partnerships that bridge academic learning with real-world applications.||Mission 3:|Nurture leadership, teamwork, develop ethical, skilled adaptable individuals visionary entrepreneurs and change makers contributing to societal growth through Sustainable, Knowledge-Driven initiatives.",
       features: [
-        "Comprehensive startup support",
-        "Expert mentorship programs",
-        "State-of-the-art facilities",
-        "Industry partnership network"
+        "State-of-the-art resources & mentorship",
+        "Experiential learning & collaborative spaces",
+        "Industry partnerships & real-world applications",
+        "Sustainable knowledge-driven initiatives"
       ]
     }
   ]
 
   const stats = [
-    { icon: <Lightbulb className="w-6 h-6" />, value: 250, label: "Startups Incubated", suffix: "+" },
-    { icon: <Users className="w-6 h-6" />, value: 1500, label: "Entrepreneurs Supported", suffix: "+" },
-    { icon: <Award className="w-6 h-6" />, value: 95, label: "Success Rate", suffix: "%" },
-    { icon: <TrendingUp className="w-6 h-6" />, value: 50, label: "Million Funding Raised", suffix: "M+" },
+    { icon: <Lightbulb className="w-6 h-6" />, value: 25, label: "Startups Incubated", suffix: "+" },
+    { icon: <Users className="w-6 h-6" />, value: 150, label: "Entrepreneurs Supported", suffix: "+" },
+    { icon: <Award className="w-6 h-6" />, value: 93, label: "Success Rate", suffix: "%" },
+  ]
+
+  const partnershipStats = [
+    { icon: <Handshake className="w-6 h-6" />, value: 25, label: "Industry Partners", suffix: "+" },
+    { icon: <Network className="w-6 h-6" />, value: 100, label: "Mentors Network", suffix: "+" },
+    { icon: <Briefcase className="w-6 h-6" />, value: 15, label: "Collaboration Projects", suffix: "+" },
   ]
 
   return (
@@ -252,28 +273,13 @@ export function IICAboutSection() {
       >
         {/* Header Section */}
         <motion.div className="text-center mb-16" variants={itemVariants}>
-          <motion.div
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/60 border border-blue-200/50 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05, borderColor: "rgba(59, 130, 246, 0.3)" }}
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="h-5 w-5 text-blue-500" />
-            </motion.div>
-            <span className="text-sm font-medium text-gray-700">
-              Innovation & Incubation Center
-            </span>
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-          </motion.div>
 
           <motion.h1 
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight"
             variants={itemVariants}
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
-              Why Choose
+              Why Choos
             </span>
             <br />
             <motion.span 
@@ -329,7 +335,7 @@ export function IICAboutSection() {
               Why Choose IIC?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our Innovation and Incubation Center stands as a beacon of entrepreneurial excellence, 
+              Our institute innovation council stands as a beacon of entrepreneurial excellence, 
               providing unparalleled support and resources to transform innovative ideas into successful ventures.
             </p>
           </motion.div>
@@ -393,7 +399,7 @@ export function IICAboutSection() {
         {/* Stats Section */}
         <motion.div 
           ref={statsRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           initial="hidden"
           animate={isStatsInView ? "visible" : "hidden"}
           variants={containerVariants}
@@ -408,6 +414,37 @@ export function IICAboutSection() {
               delay={index * 0.1}
             />
           ))}
+        </motion.div>
+
+        {/* Partnership Programs Section */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+            Partnership Programs
+          </h3>
+          <motion.div 
+            ref={partnershipRef}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            initial="hidden"
+            animate={isPartnershipInView ? "visible" : "hidden"}
+            variants={containerVariants}
+          >
+            {partnershipStats.map((stat, index) => (
+              <StatCounter
+                key={index}
+                icon={stat.icon}
+                value={stat.value}
+                label={stat.label}
+                suffix={stat.suffix}
+                delay={index * 0.1}
+              />
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* CTA Section */}

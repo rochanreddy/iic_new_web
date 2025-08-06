@@ -16,6 +16,20 @@ interface Coordinator {
   description: string;
 }
 
+interface StudentCoordinator {
+  id: number;
+  name: string;
+  designation: string;
+  year: string;
+  branch: string;
+  email: string;
+  phone: string;
+  image: string;
+  specialization: string;
+  achievements: string[];
+  description: string;
+}
+
 const FacultyCoordinators: React.FC = () => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<{
@@ -72,6 +86,110 @@ const FacultyCoordinators: React.FC = () => {
         "Workshop facilitator"
       ],
       description: "Specializes in IoT challenges and innovation lifecycle."
+    },
+    {
+      id: 4,
+      name: "Dr. Rajesh Kumar",
+      designation: "Faculty Coordinator",
+      department: "Business Administration",
+      email: "rajesh.kumar@iic.edu",
+      phone: "+1 (555) 456-7890",
+      image: "/images/team/AVML1211.JPG",
+      specialization: "Entrepreneurship",
+      achievements: [
+        "Startup mentor",
+        "Business plan expert",
+        "Innovation strategist"
+      ],
+      description: "Experienced in business development and entrepreneurship mentoring."
+    }
+  ];
+
+  const studentCoordinators: StudentCoordinator[] = [
+    {
+      id: 1,
+      name: "Abhinay Vadla",
+      designation: "President",
+      year: "4th Year",
+      branch: "Electronics and Communication Engineering",
+      email: "abhinay.vadla@student.iic.edu",
+      phone: "+1 (555) 567-8901",
+      image: "/images/team/AVML1211.JPG",
+      specialization: "Product Design",
+      achievements: [
+        "Led 5+ hackathons",
+        "Best Project Award 2023",
+        "Innovation club president"
+      ],
+      description: "Leads the organization, oversees all activities, and represents the team in official matter.Ensures smooth coordination among all departments and guides the overall direction."
+    },
+    {
+      id: 2,
+      name: "Pranay yeddla",
+      designation: "Vice President",
+      year: "3rd Year",
+      branch: "Information Technology",
+      email: "pranayyeddla75@gmail.com ",
+      phone: "+91 91215 23927",
+      image: "/images/team/WhatsApp Image 2025-07-28 at 13.52.16_9257660e.jpg",
+      specialization: "Hardware Innovation",
+      achievements: [
+        "IoT project winner",
+        "Tech fest organizer",
+        "Research paper published"
+      ],
+      description: "Assists the President and takes charge in their absence.Helps in planning, coordination, and supports all teams to meet goals."
+    },
+    {
+      id: 3,
+      name: "Rohit Gupta",
+      designation: "Secretary",
+      year: "4th Year",
+      branch: "Mechanical Engineering",
+      email: "rohit.gupta@student.iic.edu",
+      phone: "+1 (555) 789-0123",
+      image: "/images/team/WhatsApp Image 2025-07-28 at 15.10.35_81ec39a8.jpg",
+      specialization: "Product Design",
+      achievements: [
+        "3D printing expert",
+        "Design competition winner",
+        "Prototype developer"
+      ],
+      description: "Handles documentation, minutes of meetings, and official communication.Ensures timely updates and keeps records organized and accessible."
+    },
+    {
+      id: 4,
+      name: "Sneha Reddy",
+      designation: "Vice Secretary",
+      year: "3rd Year",
+      branch: "Business Administration",
+      email: "sneha.reddy@student.iic.edu",
+      phone: "+1 (555) 890-1234",
+      image: "/images/team/AVML1211.JPG",
+      specialization: "Business Development",
+      achievements: [
+        "Startup pitch winner",
+        "Marketing strategist",
+        "Event coordinator"
+      ],
+      description: "Supports the Secretary with documentation and record-keeping.Steps in when the Secretary is unavailable and helps in communication tasks."
+    },
+    {
+      id: 5,
+      name: "Vikram Singh",
+      designation: "Treasurer",
+      year: "4th Year",
+      branch: "Information Technology",
+      email: "vikram.singh@student.iic.edu",
+      phone: "+1 (555) 901-2345",
+      image: "/images/team/WhatsApp Image 2025-07-28 at 13.52.16_9257660e.jpg",
+      specialization: "Web Development",
+      achievements: [
+        "Full-stack developer",
+        "Open source contributor",
+        "Coding mentor"
+      ],
+      description: "Supports the Secretary with documentation and record-keeping.Steps in when the Secretary is unavailable and helps in communication tasks."
     }
   ];
 
@@ -79,102 +197,196 @@ const FacultyCoordinators: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            IIC Faculty Coordinators
+            IIC Coordinators
           </h1>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-            Meet our dedicated faculty coordinators fostering innovation and entrepreneurship.
+            Meet our dedicated faculty and student coordinators fostering innovation and entrepreneurship.
           </p>
         </div>
 
-        {/* Coordinators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {coordinators.map((coordinator) => (
-            <div key={coordinator.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              {/* Image Section */}
-              <div className="relative overflow-hidden rounded-t-xl">
-                <div 
-                  className="cursor-pointer"
-                  onClick={() => setSelectedImage({
-                    src: coordinator.image,
-                    alt: `${coordinator.name} - ${coordinator.designation}`,
-                    title: `${coordinator.name} - ${coordinator.designation}`
-                  })}
-                >
-                  <OptimizedImage
-                    src={coordinator.image}
-                    alt={`${coordinator.name} - ${coordinator.designation}`}
-                    className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+        {/* Faculty Coordinators Section */}
+        <div className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              Faculty Coordinators
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {coordinators.map((coordinator) => (
+              <div key={coordinator.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                {/* Image Section */}
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <div 
+                    className="cursor-pointer"
+                    onClick={() => setSelectedImage({
+                      src: coordinator.image,
+                      alt: `${coordinator.name} - ${coordinator.designation}`,
+                      title: `${coordinator.name} - ${coordinator.designation}`
+                    })}
+                  >
+                    <OptimizedImage
+                      src={coordinator.image}
+                      alt={`${coordinator.name} - ${coordinator.designation}`}
+                      className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    </div>
+                  </div>
+                  
+                  {/* Designation Badge */}
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                      Faculty
+                    </span>
                   </div>
                 </div>
-                
-                {/* Designation Badge */}
-                <div className="absolute top-3 right-3">
-                  <span className="bg-blue-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                    {coordinator.designation}
-                  </span>
+
+                {/* Content Section */}
+                <div className="p-4">
+                  {/* Name and Department */}
+                  <div className="mb-3">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      {coordinator.name}
+                    </h3>
+                    <p className="text-blue-600 font-semibold text-sm mb-1">
+                      {coordinator.department}
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      {coordinator.specialization}
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-700 text-sm mb-3 leading-relaxed">
+                    {coordinator.description}
+                  </p>
+
+                  {/* Contact Information */}
+                  <div className="space-y-1 mb-3">
+                    <div className="flex items-center text-xs text-gray-600">
+                      <svg className="w-3 h-3 mr-1 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <a href={`mailto:${coordinator.email}`} className="hover:text-blue-600 transition-colors truncate">
+                        {coordinator.email}
+                      </a>
+                    </div>
+                    <div className="flex items-center text-xs text-gray-600">
+                      <svg className="w-3 h-3 mr-1 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      <a href={`tel:${coordinator.phone}`} className="hover:text-blue-600 transition-colors">
+                        {coordinator.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Achievements */}
+                  <div className="border-t border-gray-200 pt-3">
+                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Achievements</h4>
+                    <ul className="space-y-1">
+                      {coordinator.achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start text-xs text-gray-700">
+                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Content Section */}
-              <div className="p-4">
-                {/* Name and Department */}
-                <div className="mb-3">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">
-                    {coordinator.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold text-sm mb-1">
-                    {coordinator.department}
-                  </p>
-                  <p className="text-gray-600 text-xs">
-                    {coordinator.specialization}
-                  </p>
+        {/* Student Coordinators Section */}
+        <div className="mb-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              Student Coordinators
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {studentCoordinators.map((student) => (
+              <div key={student.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 max-w-sm mx-auto h-auto flex flex-col">
+                {/* Image Section */}
+                <div className="relative overflow-hidden rounded-t-xl">
+                  <div 
+                    className="cursor-pointer"
+                    onClick={() => setSelectedImage({
+                      src: student.image,
+                      alt: `${student.name} - ${student.designation}`,
+                      title: `${student.name} - ${student.year}, ${student.branch}`
+                    })}
+                  >
+                    <OptimizedImage
+                      src={student.image}
+                      alt={`${student.name} - ${student.designation}`}
+                      className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    </div>
+                  </div>
+                  
+                  {/* Designation Badge */}
+                  <div className="absolute top-3 right-3">
+                    <span className="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                      {student.designation}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-gray-700 text-sm mb-3 leading-relaxed">
-                  {coordinator.description}
-                </p>
-
-                {/* Contact Information */}
-                <div className="space-y-1 mb-3">
-                  <div className="flex items-center text-xs text-gray-600">
-                    <svg className="w-3 h-3 mr-1 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <a href={`mailto:${coordinator.email}`} className="hover:text-blue-600 transition-colors truncate">
-                      {coordinator.email}
-                    </a>
+                {/* Content Section */}
+                <div className="p-4 flex-grow flex flex-col">
+                  {/* Name and Branch */}
+                  <div className="mb-3">
+                    <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      {student.name}
+                    </h3>
+                    <p className="text-purple-600 font-semibold text-sm mb-1">
+                      {student.branch}
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      {student.year}
+                    </p>
                   </div>
-                  <div className="flex items-center text-xs text-gray-600">
-                    <svg className="w-3 h-3 mr-1 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <a href={`tel:${coordinator.phone}`} className="hover:text-blue-600 transition-colors">
-                      {coordinator.phone}
-                    </a>
-                  </div>
-                </div>
 
-                {/* Achievements */}
-                <div className="border-t border-gray-200 pt-3">
-                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">Achievements</h4>
-                  <ul className="space-y-1">
-                    {coordinator.achievements.map((achievement, index) => (
-                      <li key={index} className="flex items-start text-xs text-gray-700">
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Description */}
+                  <p className="text-gray-700 text-sm mb-4 leading-relaxed flex-grow">
+                    {student.description}
+                  </p>
+
+                  {/* Contact Information */}
+                  <div className="space-y-2 mt-auto">
+                    <div className="flex items-center text-xs text-gray-600">
+                      <svg className="w-3 h-3 mr-2 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <a href={`mailto:${student.email}`} className="hover:text-purple-600 transition-colors truncate">
+                        {student.email}
+                      </a>
+                    </div>
+                    <div className="flex items-center text-xs text-gray-600">
+                      <svg className="w-3 h-3 mr-2 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                      <a href={`tel:${student.phone}`} className="hover:text-purple-600 transition-colors">
+                        {student.phone}
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Call to Action */}
