@@ -35,8 +35,12 @@ const Navbar: React.FC = () => {
   return (
     <nav className="w-full fixed top-0 left-0 z-20 bg-white/10 backdrop-blur-md border-b border-slate-200/20">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link to="/" className="font-bold text-lg text-blue-700 tracking-wide hover:text-blue-800 transition-colors">
-          IIC College
+        <Link to="/" className="flex items-center">
+          <img 
+            src="/images/logo/iic_logo.png" 
+            alt="IIC Logo" 
+            className="h-14 w-auto object-contain"
+          />
         </Link>
         
         {/* Desktop Navigation */}

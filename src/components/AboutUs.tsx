@@ -15,23 +15,20 @@ interface VisionMissionItemProps {
 function VisionMissionItem({ icon, title, description, features, delay }: VisionMissionItemProps) {
   return (
     <motion.div
-      className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200/50 group hover:shadow-xl transition-all duration-500"
+      className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200/50"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      whileHover={{ y: -8, scale: 1.02 }}
     >
       <motion.div
-        className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.8 }}
+        className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 text-white"
       >
         {icon}
       </motion.div>
       
       <motion.h3 
-        className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300"
+        className="text-2xl font-bold text-gray-800 mb-4"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: delay + 0.2 }}
@@ -119,7 +116,7 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
 
   return (
     <motion.div
-      className="bg-white/70 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center group hover:bg-white hover:shadow-lg transition-all duration-300"
+      className="bg-white/70 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center"
       variants={{
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -131,9 +128,7 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
       whileHover={{ y: -5, scale: 1.05 }}
     >
       <motion.div
-        className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300"
-        whileHover={{ rotate: 360 }}
-        transition={{ duration: 0.8 }}
+        className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 text-white"
       >
         {icon}
       </motion.div>
@@ -142,7 +137,7 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
         <span>{suffix}</span>
       </motion.div>
       <p className="text-gray-600 text-sm mt-1">{label}</p>
-      <motion.div className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mt-3 group-hover:w-12 transition-all duration-300" />
+      <motion.div className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mt-3" />
     </motion.div>
   )
 }
@@ -375,17 +370,17 @@ export function IICAboutSection() {
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-white/80 rounded-xl p-6 border border-gray-200/50 hover:shadow-lg transition-all duration-300 group"
+                className="bg-white/80 rounded-xl p-6 border border-gray-200/50"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
+
               >
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 text-white group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 text-white">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -464,18 +459,13 @@ export function IICAboutSection() {
             </p>
           </div>
           <motion.div className="flex justify-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button 
+                          <Button 
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100 font-semibold px-8"
+                className="bg-white text-blue-600 font-semibold px-8"
                 onClick={() => navigate('/contact')}
               >
                 Apply Now <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>

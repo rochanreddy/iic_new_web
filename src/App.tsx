@@ -17,6 +17,7 @@ const ContactUs = lazy(() => import('./components/ContactUs'));
 const PhotoGallery = lazy(() => import('./components/PhotoGallery'));
 const IEEventsPage = lazy(() => import('./components/IEEventsPage'));
 const FacultyCoordinators = lazy(() => import('./components/FacultyCoordinators'));
+const IECourses = lazy(() => import('./components/IECourses'));
 const StartupPage = lazy(() => import('./components/StartupPage'));
 const AboutUs = lazy(() => import('./components/AboutUs'));
 
@@ -60,6 +61,11 @@ function App() {
             <Route path="/ie/coordinators" element={
               <LazyWrapper>
                 <FacultyCoordinators />
+              </LazyWrapper>
+            } />
+            <Route path="/ie/courses" element={
+              <LazyWrapper>
+                <IECourses />
               </LazyWrapper>
             } />
             <Route path="/test-events" element={<IEEventsPage />} />
