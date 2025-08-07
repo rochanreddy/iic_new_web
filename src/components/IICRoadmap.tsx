@@ -35,7 +35,7 @@ const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-background font-sans"
+      className="w-full bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 font-sans"
       ref={containerRef}
     >
       <div className="max-w-4xl mx-auto py-20 px-4">
@@ -94,7 +94,7 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : { scale: 0 }}
             transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
-            className="h-10 w-10 rounded-full bg-background border-2 border-border flex items-center justify-center shadow-lg z-10"
+            className="h-10 w-10 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center shadow-lg z-10"
           >
             <div className="h-4 w-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 p-2" />
           </motion.div>

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
-import IICBackground from './components/iic-background';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutPreview from './components/AboutPreview';
@@ -39,49 +38,47 @@ function App() {
     <HelmetProvider>
       <Router>
         <SEOHead />
-        <IICBackground>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/contact" element={
-              <LazyWrapper>
-                <ContactUs />
-              </LazyWrapper>
-            } />
-            <Route path="/gallery" element={
-              <LazyWrapper>
-                <PhotoGallery />
-              </LazyWrapper>
-            } />
-            <Route path="/ie/events" element={
-              <LazyWrapper>
-                <IEEventsPage />
-              </LazyWrapper>
-            } />
-            <Route path="/ie/coordinators" element={
-              <LazyWrapper>
-                <FacultyCoordinators />
-              </LazyWrapper>
-            } />
-            <Route path="/ie/courses" element={
-              <LazyWrapper>
-                <IECourses />
-              </LazyWrapper>
-            } />
-            <Route path="/test-events" element={<IEEventsPage />} />
-            <Route path="/startup" element={
-              <LazyWrapper>
-                <StartupPage />
-              </LazyWrapper>
-            } />
-            <Route path="/about" element={
-              <LazyWrapper>
-                <AboutUs />
-              </LazyWrapper>
-            } />
-          </Routes>
-          <Footer />
-        </IICBackground>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={
+            <LazyWrapper>
+              <ContactUs />
+            </LazyWrapper>
+          } />
+          <Route path="/gallery" element={
+            <LazyWrapper>
+              <PhotoGallery />
+            </LazyWrapper>
+          } />
+          <Route path="/ie/events" element={
+            <LazyWrapper>
+              <IEEventsPage />
+            </LazyWrapper>
+          } />
+          <Route path="/ie/coordinators" element={
+            <LazyWrapper>
+              <FacultyCoordinators />
+            </LazyWrapper>
+          } />
+          <Route path="/ie/courses" element={
+            <LazyWrapper>
+              <IECourses />
+            </LazyWrapper>
+          } />
+          <Route path="/test-events" element={<IEEventsPage />} />
+          <Route path="/startup" element={
+            <LazyWrapper>
+              <StartupPage />
+            </LazyWrapper>
+          } />
+          <Route path="/about" element={
+            <LazyWrapper>
+              <AboutUs />
+            </LazyWrapper>
+          } />
+        </Routes>
+        <Footer />
       </Router>
     </HelmetProvider>
   );

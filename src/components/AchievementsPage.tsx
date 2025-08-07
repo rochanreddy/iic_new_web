@@ -162,10 +162,10 @@ export function AchievementsPage({ className }: AchievementsPageProps) {
   return (
     <section
       ref={sectionRef}
-      className={cn("min-h-screen bg-background py-20 overflow-hidden", className)}
+      className={cn("min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 py-20 overflow-hidden", className)}
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20" />
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <motion.div

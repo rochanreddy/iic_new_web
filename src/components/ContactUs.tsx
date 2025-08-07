@@ -46,7 +46,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 font-sans">
       {/* Header Section */}
       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white">
         <div className="max-w-6xl mx-auto px-4 py-16">
