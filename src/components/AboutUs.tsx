@@ -1,88 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
 import { motion, useScroll, useTransform, useInView, useSpring } from "framer-motion"
-import { Eye, Target, Lightbulb, Users, Award, TrendingUp, Sparkles, ArrowRight, CheckCircle, Handshake, Network, Briefcase } from "lucide-react"
+import { Lightbulb, Users, Award, TrendingUp, Sparkles, ArrowRight, Handshake, Network, Briefcase, Globe2 } from "lucide-react"
 import { Button } from "./ui/button"
 import { useNavigate } from "react-router-dom"
-
-interface VisionMissionItemProps {
-  icon: React.ReactNode
-  title: string
-  description: string
-  features: string[]
-  delay: number
-}
-
-function VisionMissionItem({ icon, title, description, features, delay }: VisionMissionItemProps) {
-  return (
-    <motion.div
-      className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200/50"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
-    >
-      <motion.div
-        className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 text-white"
-      >
-        {icon}
-      </motion.div>
-      
-      <motion.h3 
-        className="text-2xl font-bold text-gray-800 mb-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.2 }}
-      >
-        {title}
-      </motion.h3>
-      
-      <motion.div 
-        className="text-gray-600 leading-relaxed mb-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.3 }}
-      >
-        {title === "Mission" ? (
-          <div className="space-y-4">
-            {description.split('||').map((mission, index) => {
-              const [missionTitle, missionText] = mission.split('|');
-              return (
-                <div key={index} className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="font-semibold text-gray-800 mb-2">{missionTitle}</h4>
-                  <p className="text-gray-600">{missionText}</p>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <p>{description}</p>
-        )}
-      </motion.div>
-      
-      <motion.div 
-        className="space-y-3"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.4 }}
-      >
-        {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            className="flex items-center gap-3 text-sm text-gray-700"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: delay + 0.5 + index * 0.1 }}
-          >
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-            <span>{feature}</span>
-          </motion.div>
-        ))}
-      </motion.div>
-      
-
-    </motion.div>
-  )
-}
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+import { Pagination, Autoplay } from 'swiper/modules';
+import OptimizedImage from './ui/OptimizedImage';
 
 interface StatCounterProps {
   icon: React.ReactNode
@@ -142,6 +68,29 @@ function StatCounter({ icon, value, label, suffix, delay }: StatCounterProps) {
   )
 }
 
+const carouselItems = [
+  {
+    image: '/images/heroSection/WhatsApp Image 2025-08-05 at 15.37.16_bd44757e.jpg',
+    title: 'IIC Innovation Hub',
+    desc: 'Our state-of-the-art innovation center where ideas come to life.'
+  },
+  {
+    image: '/images/heroSection/WhatsApp Image 2025-07-28 at 11.43.42_15bd2c62.jpg',
+    title: 'Student Collaboration',
+    desc: 'Students working together on innovative projects and solutions.'
+  },
+  {
+    image: '/images/heroSection/WhatsApp Image 2025-07-28 at 11.43.42_0253870e.jpg',
+    title: 'Workshop Sessions',
+    desc: 'Interactive workshops and skill development programs.'
+  },
+  {
+    image: '/images/heroSection/WhatsApp Image 2025-07-28 at 11.43.41_dc67afd3.jpg',
+    title: 'Innovation Events',
+    desc: 'Exciting events showcasing creativity and entrepreneurship.'
+  },
+];
+
 export function IICAboutSection() {
   const navigate = useNavigate()
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -180,31 +129,6 @@ export function IICAboutSection() {
       transition: { duration: 0.6, ease: "easeOut" as const },
     },
   }
-
-  const visionMissionData = [
-    {
-      icon: <Eye className="w-8 h-8" />,
-      title: "Vision",
-      description: "To be a leading hub of innovation and entrepreneurship that empowers engineering and management students to transform ideas into impactful solutions, driving technological advancement and societal progress globally.",
-      features: [
-        "Empowering engineering & management students",
-        "Transforming ideas into impactful solutions",
-        "Driving technological advancement",
-        "Creating global societal progress"
-      ]
-    },
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: "Mission",
-      description: "Mission 1:|Foster a culture of creativity and innovation by providing state-of-the-art resources, mentorship, experiential learning, and collaborative spaces for both students and faculty.||Mission 2:|Encourage entrepreneurial thinking through outreach and inclusivity programs, workshops, incubation, hackathons, and industry partnerships that bridge academic learning with real-world applications.||Mission 3:|Nurture leadership, teamwork, develop ethical, skilled adaptable individuals visionary entrepreneurs and change makers contributing to societal growth through Sustainable, Knowledge-Driven initiatives.",
-      features: [
-        "State-of-the-art resources & mentorship",
-        "Experiential learning & collaborative spaces",
-        "Industry partnerships & real-world applications",
-        "Sustainable knowledge-driven initiatives"
-      ]
-    }
-  ]
 
   const stats = [
     { icon: <Lightbulb className="w-6 h-6" />, value: 25, label: "Startups Incubated", suffix: "+" },
@@ -266,56 +190,73 @@ export function IICAboutSection() {
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
+        {/* About IIC Section */}
+        <motion.section
+          className="mb-20 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+        >
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-5xl mx-auto">
+            {/* Left: About Text */}
+            <div className="flex-1 min-w-[260px] md:text-left text-center">
+              <h3 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700">
+                About IIC
+              </h3>
+              <p className="text-lg sm:text-xl text-slate-700 font-medium max-w-2xl mx-auto md:mx-0 mb-2">
+                The Innovation & Incubation Council (IIC) is the creative heartbeat of our campus—where ideas spark, teams collaborate, and bold visions become reality. We nurture a culture of curiosity, entrepreneurship, and hands-on problem-solving, bridging imagination with real-world impact.
+              </p>
+              <p className="text-base sm:text-lg text-slate-500 max-w-2xl mx-auto md:mx-0">
+                Empowering Innovators. Igniting Change.
+              </p>
+            </div>
+            {/* Right: Carousel */}
+            <div className="flex-1 w-full max-w-xs md:max-w-sm lg:max-w-md">
+              <Swiper
+                modules={[Pagination, Autoplay]}
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
+                spaceBetween={24}
+                slidesPerView={1}
+                className="rounded-2xl shadow-xl bg-white/60 backdrop-blur-md about-swiper"
+              >
+                {carouselItems.map((item, idx) => (
+                  <SwiperSlide key={idx}>
+                    <div className="flex flex-col items-center p-4">
+                      <OptimizedImage
+                        src={item.image}
+                        alt={item.title}
+                        className="rounded-xl w-full h-48 mb-4 shadow-md"
+                        loading="lazy"
+                      />
+                      <div className="font-bold text-lg text-blue-700 mb-1">{item.title}</div>
+                      <div className="text-slate-600 text-sm">{item.desc}</div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <style>{`
+                .about-swiper .swiper-pagination {
+                  position: static;
+                  margin-top: 12px;
+                  text-align: center;
+                }
+                .about-swiper .swiper-pagination-bullet {
+                  background: #6366f1;
+                  opacity: 0.4;
+                  transition: opacity 0.2s;
+                }
+                .about-swiper .swiper-pagination-bullet-active {
+                  opacity: 1;
+                  background: #3b82f6;
+                }
+              `}</style>
+            </div>
+          </div>
+        </motion.section>
+
         {/* Header Section */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
-
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight"
-            variants={itemVariants}
-          >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600">
-              Why Choos
-            </span>
-            <br />
-            <motion.span 
-              className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              style={{
-                backgroundSize: '200% 200%'
-              }}
-            >
-              IIC?
-            </motion.span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
-            variants={itemVariants}
-          >
-            Empowering innovation through comprehensive support, cutting-edge resources, and a thriving ecosystem of entrepreneurs and industry experts.
-          </motion.p>
-        </motion.div>
-
-        {/* Vision & Mission Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          {visionMissionData.map((item, index) => (
-            <VisionMissionItem
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              features={item.features}
-              delay={index * 0.2}
-            />
-          ))}
-        </div>
 
         {/* Why IIC Section */}
         <motion.div 
@@ -360,7 +301,7 @@ export function IICAboutSection() {
               {
                 title: "Market Access",
                 description: "Direct pathways to market entry and customer acquisition",
-                icon: <Target className="w-6 h-6" />
+                icon: <Globe2 className="w-6 h-6" />
               },
               {
                 title: "Innovation Ecosystem",

@@ -3,13 +3,14 @@ import { lazy, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import AboutPreview from './components/AboutPreview';
+import VisionMission from './components/VisionMission';
 import IICRoadmap from './components/IICRoadmap';
 import CollaborationsPartners from './components/CollaborationsPartners';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import LazyWrapper from './components/LazyWrapper';
 import SEOHead from './components/SEOHead';
+import ScrollToTop from './components/ScrollToTop';
 
 // Lazy load components for better performance
 const ContactUs = lazy(() => import('./components/ContactUs'));
@@ -25,7 +26,7 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <AboutPreview />
+      <VisionMission />
       <IICRoadmap />
       <CollaborationsPartners />
       <Testimonials />
@@ -38,6 +39,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <SEOHead />
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

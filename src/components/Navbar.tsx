@@ -21,13 +21,13 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const [isIEDropdownOpen, setIsIEDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const dropdownTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const dropdownTimeoutRef = React.useRef<number | null>(null);
 
   // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current);
+        window.clearTimeout(dropdownTimeoutRef.current);
       }
     };
   }, []);
@@ -35,7 +35,12 @@ const Navbar: React.FC = () => {
   return (
     <nav className="w-full fixed top-0 left-0 z-20 bg-white/10 backdrop-blur-md border-b border-slate-200/20">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center gap-3">
+          <img 
+            src="/images/logo/logo.png" 
+            alt="IIC Logo" 
+            className="h-14 w-auto object-contain"
+          />
           <img 
             src="/images/logo/iic_logo.png" 
             alt="IIC Logo" 
@@ -62,12 +67,12 @@ const Navbar: React.FC = () => {
             className="relative"
             onMouseEnter={() => {
               if (dropdownTimeoutRef.current) {
-                clearTimeout(dropdownTimeoutRef.current);
+                window.clearTimeout(dropdownTimeoutRef.current);
               }
               setIsIEDropdownOpen(true);
             }}
             onMouseLeave={() => {
-              dropdownTimeoutRef.current = setTimeout(() => {
+              dropdownTimeoutRef.current = window.setTimeout(() => {
                 setIsIEDropdownOpen(false);
               }, 200);
             }}
@@ -88,11 +93,11 @@ const Navbar: React.FC = () => {
                 className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
                 onMouseEnter={() => {
                   if (dropdownTimeoutRef.current) {
-                    clearTimeout(dropdownTimeoutRef.current);
+                    window.clearTimeout(dropdownTimeoutRef.current);
                   }
                 }}
                 onMouseLeave={() => {
-                  dropdownTimeoutRef.current = setTimeout(() => {
+                  dropdownTimeoutRef.current = window.setTimeout(() => {
                     setIsIEDropdownOpen(false);
                   }, 200);
                 }}
@@ -105,7 +110,7 @@ const Navbar: React.FC = () => {
                     onClick={(e) => {
                       e.stopPropagation();
                       if (dropdownTimeoutRef.current) {
-                        clearTimeout(dropdownTimeoutRef.current);
+                        window.clearTimeout(dropdownTimeoutRef.current);
                       }
                       setIsIEDropdownOpen(false);
                     }}
