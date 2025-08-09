@@ -1,32 +1,114 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Clock, Award, ArrowRight } from 'lucide-react';
+import { ArrowRight, GraduationCap } from 'lucide-react';
 import { Button } from './ui/button';
 import { useNavigate } from 'react-router-dom';
 
 const IECourses: React.FC = () => {
   const navigate = useNavigate();
 
-  const courseFeatures = [
+  const courseData = [
+    // Academic Courses
     {
-      icon: <BookOpen className="w-6 h-6" />,
-      title: "Comprehensive Curriculum",
-      description: "Industry-relevant courses covering innovation, entrepreneurship, and business development."
+      slNo: 1,
+      courseName: "Research Methodology & IPR",
+      courseCode: "2212021",
+      credits: "2",
+      department: "CE",
+      contactHours: "2",
+      type: "Core",
+      category: "Academic"
     },
     {
-      icon: <Users className="w-6 h-6" />,
-      title: "Expert Mentorship",
-      description: "Learn from experienced entrepreneurs and industry professionals."
+      slNo: 2,
+      courseName: "Skill Development",
+      courseCode: "2410596, 2420027, 2430597, 24X0598, 2230583",
+      credits: "1",
+      department: "CSE",
+      contactHours: "2",
+      type: "Core/ SDC",
+      category: "Academic"
     },
     {
-      icon: <Clock className="w-6 h-6" />,
-      title: "Flexible Learning",
-      description: "Self-paced courses with practical assignments and real-world projects."
+      slNo: 3,
+      courseName: "Business Economics and Financial Analysis",
+      courseCode: "2470010, 2480010, 2230016, 2480010",
+      credits: "3",
+      department: "CSE, EEE, IT, CSD, AI&ML",
+      contactHours: "3",
+      type: "Core",
+      category: "Academic"
     },
     {
-      icon: <Award className="w-6 h-6" />,
-      title: "Certification",
-      description: "Earn recognized certificates upon successful completion of courses."
+      slNo: 4,
+      courseName: "Business Economics and Financial Analysis",
+      courseCode: "2240016, 2230272, 2470010, 2230016, 2250016",
+      credits: "3",
+      department: "ECE, Civil, CSE, Mechanical, CSD, CSC, CSIT",
+      contactHours: "3",
+      type: "Core",
+      category: "Academic"
+    },
+    {
+      slNo: 5,
+      courseName: "Fundamentals of Management",
+      courseCode: "2270017",
+      credits: "3",
+      department: "ECE",
+      contactHours: "3",
+      type: "Core",
+      category: "Academic"
+    },
+    {
+      slNo: 6,
+      courseName: "Design and Innovation",
+      courseCode: "243ExL1",
+      credits: "1",
+      department: "EEE, CSD, AI&ML",
+      contactHours: "2",
+      type: "SDC",
+      category: "Academic"
+    },
+    {
+      slNo: 7,
+      courseName: "Prototype/Model development and Entrepreneurship",
+      courseCode: "244ExL2",
+      credits: "1",
+      department: "EEE, CSD, AI&ML",
+      contactHours: "2",
+      type: "SDC",
+      category: "Academic"
+    },
+    {
+      slNo: 8,
+      courseName: "Intellectual Property Rights",
+      courseCode: "2250024",
+      credits: "0",
+      department: "IT, CSIT",
+      contactHours: "3",
+      type: "Core",
+      category: "Academic"
+    },
+    // Non-Academic Courses
+    {
+      slNo: 9,
+      courseName: "Designing of model using fusion 360 for 3D printing",
+      courseCode: "-",
+      credits: "-",
+      department: "ECE, Civil, CSE, Mechanical, CSD, CSC, CSIT, AIML, IT, EEE",
+      contactHours: "2",
+      type: "SDC",
+      category: "Non-Academic"
+    },
+    {
+      slNo: 10,
+      courseName: "Design Thinking",
+      courseCode: "-",
+      credits: "-",
+      department: "ECE, Civil, CSE, Mechanical, CSD, CSC, CSIT, AIML, IT, EEE",
+      contactHours: "2",
+      type: "SDC",
+      category: "Non-Academic"
     }
   ];
 
@@ -36,7 +118,7 @@ const IECourses: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.h1 
-            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-4xl font-bold text-blue-600 mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,6 +126,7 @@ const IECourses: React.FC = () => {
           >
             I&E Courses
           </motion.h1>
+          
           <motion.p 
             className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -55,56 +138,85 @@ const IECourses: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Course Images */}
+        {/* Course Data Table */}
         <motion.div 
           className="mb-12"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="max-w-3xl mx-auto">
-            <img 
-              src="/images/i&eCourse/Screenshot 2025-08-07 234150.png" 
-              alt="I&E Courses Overview Part 1" 
-              className="w-full h-auto rounded-t-xl shadow-lg"
-            />
-            <img 
-              src="/images/i&eCourse/Screenshot 2025-08-07 234212.png" 
-              alt="I&E Courses Overview Part 2" 
-              className="w-full h-auto rounded-b-xl shadow-lg"
-            />
-          </div>
-        </motion.div>
-
-        {/* Course Features */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          {courseFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-            >
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-4 text-white">
-                {feature.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Sl No</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Course Name</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Course Code</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Credits</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Department</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Contact Hours/Week</th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold">Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {courseData.map((course, index) => (
+                    <React.Fragment key={course.slNo}>
+                      {/* Category Header */}
+                      {index === 0 || courseData[index - 1].category !== course.category ? (
+                        <tr className="bg-gray-50">
+                          <td colSpan={7} className="px-4 py-3">
+                            <div className="flex items-center gap-2">
+                              <GraduationCap className="w-5 h-5 text-blue-600" />
+                              <span className="font-semibold text-gray-700 text-lg">
+                                {course.category} Courses
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                      ) : null}
+                      
+                      {/* Course Row */}
+                      <tr className={`border-b border-gray-100 hover:bg-blue-50/50 transition-colors ${
+                        index % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'
+                      }`}>
+                        <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                          {course.slNo}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-900 font-medium">
+                          {course.courseName}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-600 font-mono">
+                          {course.courseCode}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-600 text-center">
+                          {course.credits}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-600">
+                          {course.department}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-600 text-center">
+                          {course.contactHours}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                            course.type === 'Core' 
+                              ? 'bg-blue-100 text-blue-800' 
+                              : course.type === 'SDC' 
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-purple-100 text-purple-800'
+                          }`}>
+                            {course.type}
+                          </span>
+                        </td>
+                      </tr>
+                    </React.Fragment>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </motion.div>
 
         {/* Call to Action */}
@@ -113,7 +225,7 @@ const IECourses: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">

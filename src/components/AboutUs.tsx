@@ -383,6 +383,39 @@ export function IICAboutSection() {
           </motion.div>
         </motion.div>
 
+        {/* Collaborations & Partners Section */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+            Collaborations & Partners
+          </h3>
+          <div className="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
+            {[
+              { name: 'MHRD' },
+              { name: 'AICTE' },
+              { name: 'ARIIA' },
+              { name: 'Startup India' }
+            ].map((partner, idx) => (
+              <motion.div
+                key={idx}
+                className="w-32 h-20 bg-white/70 rounded-lg flex items-center justify-center border border-slate-200/40 shadow backdrop-blur-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -5, scale: 1.05 }}
+              >
+                <span className="text-slate-500 font-medium">{partner.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* CTA Section */}
         <motion.div
           className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8"

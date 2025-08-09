@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { HeroHighlight, Highlight } from './ui/hero-highlight';
 import TypewriterText from './ui/typewriter-text';
 import BlurText from './ui/blur-text';
+import { Button } from './ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection: React.FC = () => (
   <HeroHighlight containerClassName="min-h-[90vh] pt-36 pb-16">
@@ -47,6 +49,26 @@ const HeroSection: React.FC = () => (
           className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-light tracking-wide"
         />
       </div>
+      
+      {/* Register Here Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.6,
+          delay: 0.8,
+          ease: [0.4, 0.0, 0.2, 1],
+        }}
+        className="mb-8"
+      >
+        <Button 
+          size="lg"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+        >
+          Register Here
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </Button>
+      </motion.div>
     </motion.div>
   </HeroHighlight>
 );

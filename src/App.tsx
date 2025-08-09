@@ -5,7 +5,6 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import VisionMission from './components/VisionMission';
 import IICRoadmap from './components/IICRoadmap';
-import CollaborationsPartners from './components/CollaborationsPartners';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import LazyWrapper from './components/LazyWrapper';
@@ -28,7 +27,6 @@ const HomePage = () => {
       <HeroSection />
       <VisionMission />
       <IICRoadmap />
-      <CollaborationsPartners />
       <Testimonials />
     </>
   );
