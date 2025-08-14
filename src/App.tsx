@@ -19,6 +19,7 @@ const FacultyCoordinators = lazy(() => import('./components/FacultyCoordinators'
 const IECourses = lazy(() => import('./components/IECourses'));
 const StartupPage = lazy(() => import('./components/StartupPage'));
 const AboutUs = lazy(() => import('./components/AboutUs'));
+const RegisterPage = lazy(() => import('./components/RegisterPage'));
 
 // Home page component
 const HomePage = () => {
@@ -75,6 +76,11 @@ function App() {
           <Route path="/about" element={
             <LazyWrapper>
               <AboutUs />
+            </LazyWrapper>
+          } />
+          <Route path="/register" element={
+            <LazyWrapper>
+              <RegisterPage />
             </LazyWrapper>
           } />
         </Routes>

@@ -1,12 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { HeroHighlight, Highlight } from './ui/hero-highlight';
 import TypewriterText from './ui/typewriter-text';
 import BlurText from './ui/blur-text';
 import { Button } from './ui/button';
 import { ArrowRight } from 'lucide-react';
 
-const HeroSection: React.FC = () => (
+const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
+  
+  return (
   <HeroHighlight containerClassName="min-h-[90vh] pt-36 pb-16">
     <motion.div
       initial={{
@@ -63,6 +67,7 @@ const HeroSection: React.FC = () => (
       >
         <Button 
           size="lg"
+          onClick={() => navigate('/register')}
           className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
         >
           Register Here
@@ -71,6 +76,7 @@ const HeroSection: React.FC = () => (
       </motion.div>
     </motion.div>
   </HeroHighlight>
-);
+  );
+};
 
 export default HeroSection; 

@@ -7,6 +7,7 @@ const navLinks = [
   { label: 'About Us', path: '/about' },
   { label: 'Startup', path: '/startup' },
   { label: 'Gallery', path: '/gallery' },
+  { label: 'Register', path: '/register' },
   { label: 'Contact Us', path: '/contact' },
 ];
 
