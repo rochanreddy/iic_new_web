@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles to prevent navbar overlap */
+@layer utilities {
+  .navbar-safe-top {
+    padding-top: 5rem; /* 80px - safe spacing for mobile navbar */
+  }
+  
+  @media (min-width: 640px) {
+    .navbar-safe-top {
+      padding-top: 7rem; /* 112px - safe spacing for tablet navbar */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-safe-top {
+      padding-top: 9rem; /* 144px - safe spacing for desktop navbar */
+    }
+  }
+}
+
+/* Ensure mobile menu doesn't cause layout shifts */
+@layer components {
+  .mobile-menu-open {
+    margin-top: 0;
+  }
+}
