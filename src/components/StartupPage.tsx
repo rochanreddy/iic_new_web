@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { cn } from "../lib/utils";
+import { Button } from "./ui/button";
 
 const TooltipProvider = TooltipPrimitive.Provider;
 const Tooltip = TooltipPrimitive.Root;
@@ -209,6 +210,24 @@ const StartupPage: React.FC = () => {
   return (
     <div className="min-h-screen pt-20">
       <StepFlowSection />
+      <div className="px-4 pb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">Ready to Join Our Innovation Journey?</h3>
+            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button onClick={() => (window.location.href = '/contact')} className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50">
+                Get Involved
+              </Button>
+              <Button onClick={() => (window.location.href = '/register')} className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50">
+                Register Now
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

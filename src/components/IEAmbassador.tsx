@@ -57,18 +57,51 @@ const ambassadors: Ambassador[] = [
   { id: 45, name: 'Raheema Shaik', email: 'raheema@miritmac.in', phone: '9346819137' },
 ];
 
+const studentAmbassadors: Ambassador[] = [
+  { id: 1, name: 'Syam Prasad', email: '237y1a1248@miritm.ac.in', phone: '8309250180' },
+  { id: 2, name: 'Thanay', email: '237y1a1251@mintm.ac.in', phone: '9985020850' },
+  { id: 3, name: 'Ramyasree', email: '237y1a6294@miritm.ac.in', phone: '9000558620' },
+  { id: 4, name: 'Supriya', email: '237y1a62b0@miritm.ac.in', phone: '8897477745' },
+  { id: 5, name: 'T Praneeth Kumar', email: '247y1a0530@miritm.ac.in', phone: '9963631443' },
+  { id: 6, name: 'K Sahith Sri Krishna', email: '247y1a0537@miritm.ac.in', phone: '8919294221' },
+  { id: 7, name: 'N Shekar', email: '247y1a0543@mintm.ac.in', phone: '7013011460' },
+  { id: 8, name: 'TEJASWI', email: '247y1a0552@miritm.ac.in', phone: '7981602826' },
+  { id: 9, name: 'SK Vaseevulla', email: '247y1a0556@miritm.ac.in', phone: '9642722707' },
+  { id: 10, name: 'Harshitha', email: '247y1a05d5@miritm.ac.in', phone: '9533432586' },
+  { id: 11, name: 'Jesmitha', email: '247y1a05d6@miritm.ac.in', phone: '8520875454' },
+  { id: 12, name: 'Niharika', email: '247y1a6695@miritm.ac.in', phone: '9966229952' },
+  { id: 13, name: 'Jasmitha', email: '247y1a6783@miritm.ac.in', phone: '6304386703' },
+  { id: 14, name: 'V Abhinay', email: 'abhichary1@gmail.com', phone: '7569501144' },
+  { id: 15, name: 'A. Meghana', email: 'aluvalameghana319@gmail.com', phone: '9381481250' },
+  { id: 16, name: 'D Karthik', email: 'dharmakarikarthik861@gmail.com', phone: '7095424997' },
+  { id: 17, name: 'Saithana Girija', email: 'girijasaithana12@gmail.com', phone: '9959545044' },
+  { id: 18, name: 'Nikitha', email: 'gnikitha127@gmail.com', phone: '9182618613' },
+  { id: 19, name: 'P Sai Varma', email: 'saivarm765@gmail.com', phone: '7780722668' },
+  { id: 20, name: 'Tharani Chandan', email: 'tharanichandan005@gmail.com', phone: '9493309325' },
+  { id: 21, name: 'K Yashwanth', email: 'yash081910@gmail.com', phone: '9381994218' },
+  { id: 22, name: 'Patlolla Ashritha', email: 'patlollaashritha111@gmail.com', phone: '7989291440' },
+  { id: 23, name: 'CHIMALA NANDINI', email: 'nandhuyadav193@gmail.com', phone: '9959365847' },
+  { id: 24, name: 'NATTALA AKSHAYA', email: 'nattalaakshaya@gmail.com', phone: '7989692826' },
+  { id: 25, name: 'Nelapatia Raghu ram', email: 'nelapatlaraghuram@gmail.com', phone: '9246176176' },
+  { id: 26, name: 'Nelapatia Abhiram', email: 'nelpatlaabhiram@gmail.com', phone: '8712238258' },
+  { id: 27, name: 'Shaik Asif', email: 'shaikasiff60@gmail.com', phone: '9121902484' },
+  { id: 28, name: 'Allenki Sai Rakesh', email: '247y1a0597@miritm.ac.in', phone: '9032908217' },
+  { id: 29, name: 'G Sanjana', email: '27y1a05a1@miritm.ac.in', phone: '9110501658' },
+  { id: 30, name: 'Pranay', email: 'pranayyeddla75@gmail.com', phone: '9121523927' },
+  { id: 31, name: 'JOHN TINA FLORIP', email: 'tinaflorip99@gmail.com', phone: '7396880721' },
+  { id: 32, name: 'JUVERIA NAZMEEN', email: 'juverianazmeen@gmail.com', phone: '6300492375' },
+];
+
 const IEAmbassador: React.FC = () => {
   return (
     <div className="navbar-safe-top min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30">
       {/* Header Section */}
-      <div className="relative text-white overflow-hidden">
-        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.12),transparent_55%)]">
-          <div className="max-w-7xl mx-auto px-4 py-16 md:py-20">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-2">IE Ambassador Directory</h1>
-              <p className="text-lg md:text-xl text-black/90">Faculty coordinators and ambassadors with contact details</p>
-            </motion.div>
-          </div>
+      <div className="relative overflow-hidden bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-16 md:py-20">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black mb-2">IE Ambassador Directory</h1>
+            <p className="text-lg md:text-xl text-black/90">Faculty coordinators and ambassadors with contact details</p>
+          </motion.div>
         </div>
       </div>
 
@@ -104,6 +137,41 @@ const IEAmbassador: React.FC = () => {
         </div>
       </div>
 
+      {/* Student Ambassadors */}
+      <div className="max-w-7xl mx-auto px-4 pb-10 mt-12">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Student Ambassadors</h2>
+        </div>
+        <div className="bg-white/80 supports-[backdrop-filter]:bg-white/70 backdrop-blur rounded-2xl ring-1 ring-slate-900/5 shadow-[0_8px_30px_rgba(2,6,23,0.08)] overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-left text-sm">
+              <thead className="bg-slate-50/80 text-slate-700">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">Serial No.</th>
+                  <th className="px-4 py-3 font-semibold">Name</th>
+                  <th className="px-4 py-3 font-semibold">Mail</th>
+                  <th className="px-4 py-3 font-semibold">Contact Number</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {studentAmbassadors.map((s) => (
+                  <tr key={s.id} className="hover:bg-slate-50/70">
+                    <td className="px-4 py-3 text-slate-700">{s.id}</td>
+                    <td className="px-4 py-3 text-slate-900 font-medium">{s.name}</td>
+                    <td className="px-4 py-3">
+                      <a href={`mailto:${s.email}`} className="text-blue-700 hover:underline break-all">{s.email}</a>
+                    </td>
+                    <td className="px-4 py-3">
+                      <a href={`tel:${s.phone}`} className="text-slate-900">{s.phone}</a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
       {/* Call to Action */}
       <motion.div 
         className="max-w-7xl mx-auto px-4 pb-12"
@@ -117,12 +185,20 @@ const IEAmbassador: React.FC = () => {
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
             Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
           </p>
-          <Button 
-            onClick={() => (window.location.href = '/contact')}
-            className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
-          >
-            Get Involved
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button 
+              onClick={() => (window.location.href = '/contact')}
+              className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
+            >
+              Get Involved
+            </Button>
+            <Button 
+              onClick={() => (window.location.href = '/register')}
+              className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
+            >
+              Register Now
+            </Button>
+          </div>
         </div>
       </motion.div>
     </div>

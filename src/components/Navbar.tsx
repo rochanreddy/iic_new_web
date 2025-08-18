@@ -5,9 +5,9 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { label: 'About Us', path: '/about' },
   { label: 'Startup', path: '/startup' },
   { label: 'Gallery', path: '/gallery' },
+  { label: 'About Us', path: '/about' },
   { label: 'Register', path: '/register' },
   { label: 'Contact Us', path: '/contact' },
 ];

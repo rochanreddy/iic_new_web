@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Target, CheckCircle } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface VisionMissionItemProps {
   icon: React.ReactNode;
@@ -13,69 +14,69 @@ interface VisionMissionItemProps {
 function VisionMissionItem({ icon, title, description, features, delay }: VisionMissionItemProps) {
   return (
     <motion.div
-      className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-200/50"
+      className="relative rounded-2xl p-[1px] bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 shadow-[0_12px_30px_rgba(2,6,23,0.08)] hover:shadow-[0_16px_40px_rgba(2,6,23,0.12)] transition-shadow h-full"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
     >
-      <motion.div
-        className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 text-white"
-      >
-        {icon}
-      </motion.div>
-      
-      <motion.h3 
-        className="text-2xl font-bold text-gray-800 mb-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.2 }}
-      >
-        {title}
-      </motion.h3>
-      
-      <motion.div 
-        className="text-gray-600 leading-relaxed mb-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.3 }}
-      >
-        {title === "Mission" ? (
-          <div className="space-y-4">
-            {description.split('||').map((mission, index) => {
-              const [missionTitle, missionText] = mission.split('|');
-              return (
-                <div key={index} className="border-l-4 border-blue-500 pl-4">
-                  <h4 className="font-semibold text-gray-800 mb-2">{missionTitle}</h4>
-                  <p className="text-gray-600">{missionText}</p>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <p>{description}</p>
-        )}
-      </motion.div>
-      
-      <motion.div 
-        className="space-y-3"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: delay + 0.4 }}
-      >
-        {features.map((feature, index) => (
-          <motion.div
-            key={index}
-            className="flex items-center gap-3 text-sm text-gray-700"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: delay + 0.5 + index * 0.1 }}
-          >
-            <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-            <span>{feature}</span>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="bg-white/80 supports-[backdrop-filter]:bg-white/70 backdrop-blur rounded-2xl p-8 border border-gray-200/50 group h-full flex flex-col">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-105 transition-transform">
+          {icon}
+        </div>
+
+        <motion.h3
+          className="text-2xl font-bold text-gray-900 mb-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: delay + 0.2 }}
+        >
+          {title}
+        </motion.h3>
+
+        <motion.div
+          className="text-gray-600 leading-relaxed mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: delay + 0.3 }}
+        >
+          {title === 'Mission' ? (
+            <div className="space-y-4">
+              {description.split('||').map((mission, index) => {
+                const [missionTitle, missionText] = mission.split('|');
+                return (
+                  <div key={index} className="border-l-4 border-blue-500/70 pl-4">
+                    <h4 className="font-semibold text-gray-800 mb-2">{missionTitle}</h4>
+                    <p className="text-gray-600">{missionText}</p>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p>{description}</p>
+          )}
+        </motion.div>
+
+        <motion.div
+          className="space-y-3"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: delay + 0.4 }}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="flex items-center gap-3 text-sm text-gray-700"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: delay + 0.5 + index * 0.1 }}
+            >
+              <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+              <span>{feature}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -117,41 +118,45 @@ const VisionMission: React.FC = () => {
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800">
             Vision & Mission
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Driving innovation and entrepreneurship through our clear vision and comprehensive mission
           </p>
         </motion.div>
 
-        {/* Combined single window with its own scroll */}
-        <motion.div
-          className="relative rounded-3xl p-[1px] bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 shadow-[0_12px_30px_rgba(2,6,23,0.08)]"
+        {/* Cards grid (no inner scroll) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {visionMissionData.map((item, index) => (
+            <VisionMissionItem
+              key={index}
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+              features={item.features}
+              delay={index * 0.1}
+            />
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div 
+          className="mt-12 md:mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="rounded-3xl bg-white/70 supports-[backdrop-filter]:bg-white/60 backdrop-blur ring-1 ring-black/5 overflow-hidden bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.08),transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(147,51,234,0.08),transparent_55%)]">
-            <div className="max-h-[540px] md:max-h-[620px] overflow-y-auto vm-scroll p-6 md:p-8 space-y-8">
-              {visionMissionData.map((item, index) => (
-                <VisionMissionItem
-                  key={index}
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                  features={item.features}
-                  delay={index * 0.2}
-                />
-              ))}
-            </div>
+          <div className="inline-flex gap-3">
+            <Button onClick={() => (window.location.href = '/about')} className="bg-blue-600 hover:bg-blue-700 text-white">Learn More</Button>
+            <Button onClick={() => (window.location.href = '/contact')} variant="outline">Get Involved</Button>
           </div>
         </motion.div>
       </div>

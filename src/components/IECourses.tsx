@@ -229,25 +229,23 @@ const IECourses: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
-              Ready to Start Your Innovation Journey?
+              Ready to Join Our Innovation Journey?
             </h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Join our I&E courses and gain the skills, knowledge, and network needed to turn your innovative ideas into successful businesses.
+              Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => navigate('/contact')}
-                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold flex items-center gap-2"
+                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold"
               >
-                Contact Us
-                <ArrowRight className="w-4 h-4" />
+                Get Involved
               </Button>
               <Button 
-                onClick={() => navigate('/ie/events')}
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-semibold"
+                onClick={() => navigate('/register')}
+                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold"
               >
-                View Events
+                Register Now
               </Button>
             </div>
           </div>

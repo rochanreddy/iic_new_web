@@ -195,8 +195,8 @@ const RegisterPage: React.FC = () => {
   return (
     <div className="navbar-safe-top min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30">
       {/* Header Section (matching ContactUs) */}
-      <div className="relative text-white overflow-hidden">
-        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.12),transparent_55%)]">
+      <div className="relative overflow-hidden bg-white">
+        <div className="">
           <div className="max-w-7xl mx-auto px-4 py-20 md:py-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

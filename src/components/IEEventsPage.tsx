@@ -282,12 +282,20 @@ const IEEventsPage: React.FC = () => {
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
             </p>
-            <button 
-              onClick={() => navigate('/contact')}
-              className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300"
-            >
-              Get Involved
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button 
+                onClick={() => navigate('/contact')}
+                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300"
+              >
+                Get Involved
+              </button>
+              <button 
+                onClick={() => navigate('/register')}
+                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300"
+              >
+                Register Now
+              </button>
+            </div>
           </div>
         </div>
       </div>

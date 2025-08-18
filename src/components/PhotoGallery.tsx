@@ -303,6 +303,8 @@ const PhotoGallery = ({
         </div>
       </div>
 
+      {/* CTA removed for gallery as requested */}
+
       {/* Lightbox Modal */}
       {selectedImage && (
         <div
@@ -373,3 +375,8 @@ const PhotoGallery = ({
 };
 
 export default PhotoGallery; 
+ 
+// CTA Section appended for consistency
+// Keeping the same theme as other pages
+// Placed after export to avoid changing gallery logic
+ 

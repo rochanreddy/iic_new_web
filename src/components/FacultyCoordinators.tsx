@@ -137,13 +137,15 @@ const FacultyCoordinators: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            IIC Coordinators
-          </h1>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-            Meet our dedicated faculty and student coordinators fostering innovation and entrepreneurship.
-          </p>
+        <div className="relative overflow-hidden bg-white mb-12">
+          <div className="max-w-7xl mx-auto px-4 py-12 md:py-16 text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              IIC Coordinators
+            </h1>
+            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
+              Meet our dedicated faculty and student coordinators fostering innovation and entrepreneurship.
+            </p>
+          </div>
         </div>
 
         {/* Faculty Coordinators Section */}
@@ -334,24 +336,22 @@ const FacultyCoordinators: React.FC = () => {
         {/* Call to Action */}
         <div className="text-center">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
-            <h3 className="text-xl font-bold mb-3">
-              Ready to Connect?
-            </h3>
+            <h3 className="text-xl font-bold mb-3">Ready to Join Our Innovation Journey?</h3>
             <p className="text-blue-100 mb-4 max-w-xl mx-auto text-sm">
-              Our coordinators are here to guide your innovation journey.
+              Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button 
                 onClick={() => navigate('/contact')}
                 className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300 text-sm"
               >
-                Contact Us
+                Get Involved
               </button>
               <button 
-                onClick={() => navigate('/ie/events')}
-                className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300 text-sm"
+                onClick={() => navigate('/register')}
+                className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-300 text-sm"
               >
-                View Events
+                Register Now
               </button>
             </div>
           </div>

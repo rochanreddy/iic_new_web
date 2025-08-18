@@ -418,29 +418,28 @@ export function IICAboutSection() {
 
         {/* CTA Section */}
         <motion.div
-          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 md:p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 md:p-12 rounded-3xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex-1 text-center md:text-left">
+          <div className="text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Ready to Transform Your Idea?
+              Ready to Join Our Innovation Journey?
             </h3>
-            <p className="text-blue-100 text-lg">
-              Join our thriving community of innovators and entrepreneurs. Let's build the future together.
+            <p className="text-blue-100 text-lg max-w-3xl mx-auto mb-6">
+              Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
             </p>
-          </div>
-          <motion.div className="flex justify-center">
-                          <Button 
-                size="lg"
-                className="bg-white text-blue-600 font-semibold px-8"
-                onClick={() => navigate('/contact')}
-              >
-                Apply Now <ArrowRight className="w-5 h-5 ml-2" />
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button className="bg-white text-blue-600 font-semibold px-8" onClick={() => navigate('/contact')}>
+                Get Involved
               </Button>
-          </motion.div>
+              <Button className="bg-white text-blue-600 font-semibold px-8" onClick={() => navigate('/register')}>
+                Register Now
+              </Button>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>
