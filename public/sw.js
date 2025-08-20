@@ -1,52 +1,70 @@
-const CACHE_NAME = 'iic-cache-v1';
-const urlsToCache = [
+const VERSION = 'v3';
+const STATIC_CACHE = `iic-static-${VERSION}`;
+const IMAGE_CACHE = `iic-images-${VERSION}`;
+const STATIC_ASSETS = [
   '/',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/images/heroSection/image.png',
-  '/images/heroSection/WhatsApp Image 2025-07-28 at 11.43.42_0253870e.jpg',
-  '/images/heroSection/WhatsApp Image 2025-07-28 at 11.43.42_15bd2c62.jpg',
-  '/images/heroSection/WhatsApp Image 2025-07-28 at 11.43.41_dc67afd3.jpg',
-  '/images/events/1.png',
-  '/images/events/2.png',
-  '/images/events/3.png',
-  '/images/events/4.png'
+  '/index.html',
+  '/manifest.json'
 ];
 
 // Install event
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(STATIC_CACHE).then((cache) => cache.addAll(STATIC_ASSETS))
   );
+  self.skipWaiting();
 });
 
 // Fetch event
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
+  const req = event.request;
+  const url = new URL(req.url);
+
+  // Network-first for navigation requests to avoid stale pages
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(STATIC_CACHE).then((cache) => cache.put('/', copy));
+          return res;
+        })
+        .catch(() => caches.match(req).then((r) => r || caches.match('/index.html')))
+    );
+    return;
+  }
+
+  // Cache-first for images with runtime caching
+  if (req.destination === 'image') {
+    event.respondWith(
+      caches.match(req).then((cached) => {
+        if (cached) return cached;
+        return fetch(req).then((res) => {
+          const copy = res.clone();
+          caches.open(IMAGE_CACHE).then((cache) => cache.put(req, copy));
+          return res;
+        });
       })
+    );
+    return;
+  }
+
+  // Default: try cache, then network
+  event.respondWith(
+    caches.match(req).then((cached) => cached || fetch(req))
   );
 });
 
 // Activate event
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys
+          .filter((k) => ![STATIC_CACHE, IMAGE_CACHE].includes(k))
+          .map((k) => caches.delete(k))
+      )
+    )
   );
-}); 
+  self.clients.claim();
+});

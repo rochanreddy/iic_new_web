@@ -9,6 +9,20 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
       .then((registration) => {
         console.log('SW registered: ', registration);
+        if (registration.waiting) {
+          registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        registration.addEventListener('updatefound', () => {
+          const newWorker = registration.installing;
+          if (!newWorker) return;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // New content is available; reload to get fresh routes/assets
+              console.log('New service worker installed, reloading to update...');
+              window.location.reload();
+            }
+          });
+        });
       })
       .catch((registrationError) => {
         console.log('SW registration failed: ', registrationError);
