@@ -46,11 +46,11 @@ const FacultyCoordinators: React.FC = () => {
   const coordinators: Coordinator[] = [
     {
       id: 1,
-      name: "Dr. JANI PRAMELA STANLY KOCHAPPA",
+      name: "Dr. S P JANI",
       designation: "Associate Professor",
       department: "Mechanical Engineering",
-      email: "sarah.johnson@iic.edu",
-      phone: "+1 (555) 123-4567",
+      email: "spjani10@mlritm.ac.in",
+      phone: "+91 8148625005",
       image: imgJani
       
     },
@@ -59,8 +59,8 @@ const FacultyCoordinators: React.FC = () => {
       name: "Mr.B. Prasad",
       designation: "Associate Professor",
       department: "Computer Science & Engineering",
-      email: "michael.chen@iic.edu",
-      phone: "+1 (555) 234-5678",
+      email: "rprasadb@mlritm.ac.in",
+      phone: "+91 9849356732",
       image: imgPrasad
 
     },
@@ -69,8 +69,8 @@ const FacultyCoordinators: React.FC = () => {
       name: "MR. R. RAJA KISHORE",
       designation: "Assistant Professor",
       department: "Electronics & Communication Engineering",
-      email: "emily.rodriguez@iic.edu",
-      phone: "+1 (555) 345-6789",
+      email: "rajakishore@mlritm.ac.in",
+      phone: "+91	9966640888",
       image: imgRajKishore
 
     },
@@ -83,6 +83,16 @@ const FacultyCoordinators: React.FC = () => {
       phone: "+91 8333034526",
       image: imgSrinivasa  
 
+    },
+    {
+      id: 5,
+      name: "Dr. Athota Rathan Babu",
+      designation: "Head of Centre for Aerial, Defense and Space Research",
+      department: "Head of Centre for Aerial, Defense and Space Research",
+      email: "a.rathanbabu@mlritm.ac.in",
+      phone: "+91 9700302600",
+      image: "/images/team/WhatsApp Image 2025-08-20 at 19.11.13_eef3854f.jpg"  
+
     }
   ];
 
@@ -93,8 +103,8 @@ const FacultyCoordinators: React.FC = () => {
       designation: "President",
       year: "4th Year",
       branch: "Electronics and Communication Engineering",
-      email: "abhinay.vadla@student.iic.edu",
-      phone: "+1 (555) 567-8901",
+      email: "abhichary1@gmail.com",
+      phone: "+91 7569501144",
       image: "/images/team/WhatsApp Image 2025-07-28 at 13.52.16_9257660e.jpg"
 
     },
@@ -105,7 +115,7 @@ const FacultyCoordinators: React.FC = () => {
       year: "3rd Year",
       branch: "Information Technology",
       email: "pranayyeddla75@gmail.com ",
-      phone: "+91 91215 23927",
+      phone: "+91 9121523927",
       image: imgPranay
 
     },
@@ -114,21 +124,10 @@ const FacultyCoordinators: React.FC = () => {
       name: "K Yashwanth",
       designation: "Secretary",
       year: "4th Year",
-      branch: "Cyber security",
-      email: "rohit.gupta@student.iic.edu",
-      phone: "+1 (555) 789-0123",
+      branch: "Data Science",
+      email: "yash081910@gmail.com",
+      phone: "+91 9381994218",
       image: "/images/team/WhatsApp Image 2025-07-28 at 15.10.35_81ec39a8.jpg"
-
-    },
-    {
-      id: 5,
-      name: "P.Thanay",
-      designation: "Treasurer",
-      year: "3rd Year",
-      branch: "Information Technology",
-      email: "thanayp99@gmail.com",
-      phone: "+91 9985020850",
-      image: "#"
 
     }
   ];
@@ -159,11 +158,11 @@ const FacultyCoordinators: React.FC = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {coordinators.map((coordinator) => (
-              <div key={coordinator.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div key={coordinator.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 max-w-xs mx-auto md:max-w-none">
                 {/* Image Section */}
-                <div className="relative overflow-hidden rounded-t-xl bg-gray-100 aspect-[3/4] flex">
+                <div className="relative overflow-hidden rounded-t-xl bg-gray-100 aspect-[7/8] flex">
                   <div 
-                    className="cursor-pointer h-full"
+                    className="cursor-pointer h-full w-full"
                     onClick={() => setSelectedImage({
                       src: coordinator.image,
                       alt: `${coordinator.name} - ${coordinator.designation}`,
@@ -174,7 +173,7 @@ const FacultyCoordinators: React.FC = () => {
                       src={coordinator.image}
                       alt={`${coordinator.name} - ${coordinator.designation}`}
                       className="w-full h-full"
-                      imgClassName="object-center"
+                      imgClassName="object-center object-contain md:object-cover"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
@@ -229,18 +228,6 @@ const FacultyCoordinators: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Achievements */}
-                  <div className="border-t border-gray-200 pt-3">
-                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Achievements</h4>
-                    <ul className="space-y-1">
-                      {coordinator.achievements?.map((achievement, index) => (
-                        <li key={index} className="flex items-start text-xs text-gray-700">
-                          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
               </div>
             ))}
@@ -256,13 +243,13 @@ const FacultyCoordinators: React.FC = () => {
             <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {studentCoordinators.map((student) => (
-              <div key={student.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 max-w-sm mx-auto h-auto flex flex-col">
+              <div key={student.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 max-w-xs md:max-w-none mx-auto h-auto flex flex-col">
                 {/* Image Section */}
-                <div className="relative overflow-hidden rounded-t-xl bg-gray-100 aspect-[3/4] flex">
+                <div className="relative overflow-hidden rounded-t-xl bg-gray-100 aspect-[7/8] flex">
                   <div 
-                    className="cursor-pointer h-full"
+                    className="cursor-pointer h-full w-full"
                     onClick={() => setSelectedImage({
                       src: student.image,
                       alt: `${student.name} - ${student.designation}`,
@@ -273,7 +260,7 @@ const FacultyCoordinators: React.FC = () => {
                       src={student.image}
                       alt={`${student.name} - ${student.designation}`}
                       className="w-full h-full"
-                      imgClassName="object-center"
+                      imgClassName="object-center object-contain md:object-cover"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">

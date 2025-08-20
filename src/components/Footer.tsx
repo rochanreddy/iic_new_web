@@ -58,14 +58,14 @@ const Footer: React.FC = () => (
       <div className="border-t border-slate-200/30 mb-6"></div>
 
       {/* Team / Credits (LinkedIn anchors) */}
-      <div className="text-center mb-2 text-sm font-semibold text-black">
+      <div className="text-center mb-2 text-base md:text-lg font-semibold text-black">
         <span className="relative inline-block">
           <span className="block">Developed by</span>
           <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-white to-black bg-[length:200%_100%] bg-clip-text text-transparent animate-shine">Developed by</span>
         </span>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-4 text-sm">
+      <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-4 text-base md:text-lg">
         <a
           href="https://www.linkedin.com/in/rochan-reddy"
           target="_blank"
@@ -77,7 +77,7 @@ const Footer: React.FC = () => (
             <span className="block">Rochan</span>
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-white to-black bg-[length:200%_100%] bg-clip-text text-transparent opacity-100 animate-shine">Rochan</span>
           </span>
-          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">Connect on LinkedIn?</span>
+          <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs md:text-sm text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">Connect on LinkedIn?</span>
         </a>
         <a
           href="https://www.linkedin.com/in/thanay-525924243"
@@ -90,7 +90,7 @@ const Footer: React.FC = () => (
             <span className="block">Thanay</span>
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-white to-black bg-[length:200%_100%] bg-clip-text text-transparent opacity-100 animate-shine">Thanay</span>
           </span>
-          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">Say hi on LinkedIn?</span>
+          <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs md:text-sm text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">Say hi on LinkedIn?</span>
         </a>
         <a
           href="https://www.linkedin.com/in/meghanadha-reddy"
@@ -103,7 +103,7 @@ const Footer: React.FC = () => (
             <span className="block">Meghanadha</span>
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-white to-black bg-[length:200%_100%] bg-clip-text text-transparent opacity-100 animate-shine">Meghanadha</span>
           </span>
-          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">View profile?</span>
+          <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs md:text-sm text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">View profile?</span>
         </a>
         <a
           href="https://www.linkedin.com/in/mithresh-uttarwar-23bb39307"
@@ -116,7 +116,7 @@ const Footer: React.FC = () => (
             <span className="block">Mithresh</span>
             <span aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-white to-black bg-[length:200%_100%] bg-clip-text text-transparent opacity-100 animate-shine">Mithresh</span>
           </span>
-          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">Open LinkedIn?</span>
+          <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-black px-2 py-1 text-xs md:text-sm text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-200">Open LinkedIn?</span>
         </a>
       </div>
 

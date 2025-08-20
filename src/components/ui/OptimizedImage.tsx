@@ -58,13 +58,13 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   }, [src]);
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative ${className}`} style={{ display: 'block', lineHeight: 0 }}>
       <img
         ref={imgRef}
         src={imageSrc}
         alt={alt}
         loading={loading}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
+        className={`w-full h-full object-cover block align-middle transition-opacity duration-300 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         } ${imgClassName}`}
         onLoad={() => {

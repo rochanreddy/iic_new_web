@@ -9,6 +9,20 @@ type Ambassador = {
   phone: string;
 };
 
+// Normalize email domains: keep Gmail as-is; any domain starting with 'm' → mlritm.ac.in
+const normalizeMlritmEmail = (email: string): string => {
+  const lowerCasedEmail = email.toLowerCase();
+  if (lowerCasedEmail.includes('@gmail.')) return email;
+  const atIndex = email.indexOf('@');
+  if (atIndex === -1) return email;
+  const localPart = email.slice(0, atIndex);
+  const domainPart = email.slice(atIndex + 1).toLowerCase();
+  if (domainPart.startsWith('m')) {
+    return `${localPart}@mlritm.ac.in`;
+  }
+  return email;
+};
+
 const ambassadors: Ambassador[] = [
   { id: 1, name: 'Dr. G. AMARNATH', email: 'amarnath@m.ac.in', phone: '9326145769' },
   { id: 2, name: 'KALPANA ANUMALA', email: 'anumala.kalpana@gmail.com', phone: '8125661120' },
@@ -109,24 +123,24 @@ const IEAmbassador: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-10">
         <div className="bg-white/80 supports-[backdrop-filter]:bg-white/70 backdrop-blur rounded-2xl ring-1 ring-slate-900/5 shadow-[0_8px_30px_rgba(2,6,23,0.08)] overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="min-w-full text-left text-sm">
+            <table className="min-w-[720px] md:min-w-full text-left text-xs sm:text-sm">
               <thead className="bg-slate-50/80 text-slate-700">
                 <tr>
-                  <th className="px-4 py-3 font-semibold">Serial No.</th>
-                  <th className="px-4 py-3 font-semibold">Name</th>
-                  <th className="px-4 py-3 font-semibold">Mail</th>
-                  <th className="px-4 py-3 font-semibold">Contact Number</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-16">Serial No.</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-64">Name</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-80">Mail</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-48">Contact Number</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {ambassadors.map((a) => (
                   <tr key={a.id} className="hover:bg-slate-50/70">
-                    <td className="px-4 py-3 text-slate-700">{a.id}</td>
-                    <td className="px-4 py-3 text-slate-900 font-medium">{a.name}</td>
-                    <td className="px-4 py-3">
-                      <a href={`mailto:${a.email}`} className="text-blue-700 hover:underline break-all">{a.email}</a>
+                    <td className="px-3 sm:px-4 py-2 sm:py-3 text-slate-700">{a.id}</td>
+                    <td className="px-3 sm:px-4 py-2 sm:py-3 text-slate-900 font-medium">{a.name}</td>
+                    <td className="px-3 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
+                      <a href={`mailto:${normalizeMlritmEmail(a.email)}`} className="text-blue-700 hover:underline">{normalizeMlritmEmail(a.email)}</a>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-3 sm:px-4 py-2 sm:py-3">
                       <a href={`tel:${a.phone}`} className="text-slate-900">{a.phone}</a>
                     </td>
                   </tr>
@@ -144,24 +158,24 @@ const IEAmbassador: React.FC = () => {
         </div>
         <div className="bg-white/80 supports-[backdrop-filter]:bg-white/70 backdrop-blur rounded-2xl ring-1 ring-slate-900/5 shadow-[0_8px_30px_rgba(2,6,23,0.08)] overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="min-w-full text-left text-sm">
+            <table className="min-w-[720px] md:min-w-full text-left text-xs sm:text-sm">
               <thead className="bg-slate-50/80 text-slate-700">
                 <tr>
-                  <th className="px-4 py-3 font-semibold">Serial No.</th>
-                  <th className="px-4 py-3 font-semibold">Name</th>
-                  <th className="px-4 py-3 font-semibold">Mail</th>
-                  <th className="px-4 py-3 font-semibold">Contact Number</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-16">Serial No.</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-64">Name</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-80">Mail</th>
+                  <th className="px-3 sm:px-4 py-2 sm:py-3 font-semibold w-48">Contact Number</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {studentAmbassadors.map((s) => (
                   <tr key={s.id} className="hover:bg-slate-50/70">
-                    <td className="px-4 py-3 text-slate-700">{s.id}</td>
-                    <td className="px-4 py-3 text-slate-900 font-medium">{s.name}</td>
-                    <td className="px-4 py-3">
-                      <a href={`mailto:${s.email}`} className="text-blue-700 hover:underline break-all">{s.email}</a>
+                    <td className="px-3 sm:px-4 py-2 sm:py-3 text-slate-700">{s.id}</td>
+                    <td className="px-3 sm:px-4 py-2 sm:py-3 text-slate-900 font-medium">{s.name}</td>
+                    <td className="px-3 sm:px-4 py-2 sm:py-3 whitespace-nowrap">
+                      <a href={`mailto:${normalizeMlritmEmail(s.email)}`} className="text-blue-700 hover:underline">{normalizeMlritmEmail(s.email)}</a>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-3 sm:px-4 py-2 sm:py-3">
                       <a href={`tel:${s.phone}`} className="text-slate-900">{s.phone}</a>
                     </td>
                   </tr>

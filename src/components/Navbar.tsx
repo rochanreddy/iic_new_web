@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
           >
             <motion.div 
               ref={mobileMenuRef}
-              className="absolute top-0 left-0 w-full h-full bg-white shadow-2xl"
+              className="absolute top-0 left-0 w-full h-full bg-white shadow-2xl flex flex-col"
               initial={{ x: '-100%' }}
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
@@ -214,7 +214,7 @@ const Navbar: React.FC = () => {
             >
               {/* Mobile Menu Header */}
               <motion.div 
-                className="flex items-center justify-between p-4 border-b border-gray-200"
+                className="flex items-center justify-between p-3 border-b border-gray-200"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.3 }}
@@ -223,12 +223,12 @@ const Navbar: React.FC = () => {
                   <img 
                     src="/images/logo/logo.png" 
                     alt="IIC Logo" 
-                    className="h-12 w-auto object-contain"
+                    className="h-10 w-auto object-contain"
                   />
                   <img 
                     src="/images/logo/iic_logo.png" 
                     alt="IIC Logo" 
-                    className="h-12 w-auto object-contain"
+                    className="h-10 w-auto object-contain"
                   />
                 </div>
                 <button
@@ -241,7 +241,7 @@ const Navbar: React.FC = () => {
 
               {/* Mobile Menu Content */}
               <motion.div 
-                className="p-6 space-y-6 overflow-y-auto h-full"
+                className="p-4 space-y-4 flex-1"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.3 }}
@@ -254,7 +254,7 @@ const Navbar: React.FC = () => {
                 >
                   <Link
                     to="/"
-                    className={`block text-lg font-medium transition-colors hover:text-blue-600 py-3 border-b border-gray-100 ${
+                    className={`block text-base font-medium transition-colors hover:text-blue-600 py-2 ${
                       location.pathname === '/' 
                         ? 'text-blue-600 font-semibold' 
                         : 'text-gray-700 hover:text-blue-600'
@@ -267,13 +267,13 @@ const Navbar: React.FC = () => {
                 
                 {/* I&E Section */}
                 <motion.div 
-                  className="space-y-4"
+                  className="space-y-3"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.5, duration: 0.3 }}
                 >
-                  <div className="text-lg font-semibold text-gray-800 py-2 border-b border-gray-100">I&E</div>
-                  <div className="ml-4 space-y-3">
+                  <div className="text-base font-semibold text-gray-800 py-1">I&E</div>
+                  <div className="ml-3 space-y-2">
                     {ieDropdownItems.map((item, index) => (
                       <motion.div
                         key={index}
@@ -283,7 +283,7 @@ const Navbar: React.FC = () => {
                       >
                         <Link
                           to={item.path}
-                          className="block text-base text-gray-600 hover:text-blue-600 transition-colors py-2"
+                          className="block text-sm text-gray-600 hover:text-blue-600 transition-colors py-1.5"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           {item.label}
@@ -303,7 +303,7 @@ const Navbar: React.FC = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`block text-lg font-medium transition-colors hover:text-blue-600 py-3 border-b border-gray-100 ${
+                      className={`block text-base font-medium transition-colors hover:text-blue-600 py-2 ${
                         location.pathname === link.path 
                           ? 'text-blue-600 font-semibold' 
                           : 'text-gray-700 hover:text-blue-600'

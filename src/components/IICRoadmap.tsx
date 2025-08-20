@@ -88,7 +88,7 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className="flex justify-start pt-10 md:pt-40 md:gap-10"
     >
-      <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+      <div className="sticky flex flex-col md:flex-row z-30 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
         <div className="relative flex flex-col items-center w-10">
           <motion.div 
             initial={{ scale: 0 }}
@@ -104,7 +104,7 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
         </h3>
       </div>
 
-      <div className="relative pl-20 pr-4 md:pl-4 w-full">
+      <div className="relative pl-20 pr-4 md:pl-4 w-full z-0">
         <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-foreground">
           {item.title}
         </h3>
