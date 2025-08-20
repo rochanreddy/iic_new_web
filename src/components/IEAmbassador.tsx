@@ -203,14 +203,14 @@ const IEAmbassador: React.FC = () => {
             Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button 
-              onClick={() => navigate('/contact')}
+           <Button 
+              onClick={() => (window.location.href = '/contact')}
               className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
             >
               Get Involved
             </Button>
             <Button 
-              onClick={() => navigate('/register')}
+              onClick={() => (window.location.href = '/register')}
               className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
             >
               Register Now
