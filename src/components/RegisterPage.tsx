@@ -31,29 +31,31 @@ const RegisterPage: React.FC = () => {
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
   const departments = [
-    'Computer Science',
-    'Electronics and Communication',
-    'Mechanical Engineering',
-    'Civil Engineering',
-    'Electrical Engineering',
-    'Chemical Engineering',
-    'Biotechnology'
+    'CSE',
+    'CSM',
+    'CSD',
+    'CSC',
+    'CSIT',
+    'IT',
+    'ECE',
+    'EEE',
+    'MECH',
+    'CIVIL'
   ];
 
-  const years = ['1st Year', '2nd Year', '3rd Year', '4th Year'];
+  const years = ['1st year', '2nd year', '3rd year', '4th year'];
 
   const domains = [
-    'Intermshii',
-    'Machine Learning',
-    'Data Science',
-    'Cybersecurity',
-    'Web Development',
-    'Mobile App Development',
-    'Cloud Computing',
-    'Internet of Things (IoT)',
-    'Robotics',
-    'Bioinformatics',
-    'Aerospace'
+    'Internship',
+    'Innovation',
+    'IPR (Intellectual Property Rights)',
+    'Photography',
+    'Hospitality',
+    'Graphic Design',
+    'Startup',
+    'Tech',
+    'General',
+    'Promotion'
   ];
 
   const validateForm = (): boolean => {
@@ -101,18 +103,18 @@ const RegisterPage: React.FC = () => {
     try {
       // Google Form field IDs mapped from your prefilled URL
       const googleFormData = {
-        'entry.1218703520': formData.name,           // Name
-        'entry.1579542061': formData.rollNo,         // Roll Number
-        'entry.104592945':  formData.dept,           // Department
-        'entry.432112087':  formData.year,           // Year
-        'entry.416397510':  formData.contactNumber,  // Contact Number
-        'entry.1183764118': formData.mail,           // Email
-        'entry.1125557005': formData.reasonPurpose,  // Reason/Purpose
-        'entry.597236666':  formData.domain          // Domain of Interest
+        'entry.626766588': formData.name,            // Name
+        'entry.378219805': formData.rollNo,          // Roll Number
+        'entry.786764176': formData.dept,            // Department
+        'entry.258556438': formData.year,            // Year
+        'entry.19122864':  formData.contactNumber,   // Contact Number
+        'entry.1791891519': formData.mail,           // mail
+        'entry.1707875587': formData.reasonPurpose,  // Reason to join IIC
+        'entry.884887606':  formData.domain          // Domain
       };
 
       // Google Form formResponse endpoint for your form
-      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdc61E_VoJvxekyGLN3Dj1rxHVHS712v5cKx6Vq8nU_ap15jA/formResponse';
+      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScQaMosn9NloV-aJ7H5DqBGTqVCBLGimGOXA4LSGJT5n5e-8A/formResponse';
       
       // Create form data for submission
       const formDataToSend = new FormData();
@@ -130,11 +132,6 @@ const RegisterPage: React.FC = () => {
       // Since we're using no-cors, we can't read the response
       // But the form should be submitted successfully
       setIsSubmitted(true);
-      
-      // Open WhatsApp group invitation after successful submission
-      setTimeout(() => {
-        openWhatsAppGroup();
-      }, 1000);
       
       // Reset form after successful submission
       setFormData({
@@ -156,14 +153,6 @@ const RegisterPage: React.FC = () => {
     }
   };
 
-  const openWhatsAppGroup = () => {
-    // Replace this URL with your actual WhatsApp group invitation link
-    const whatsappGroupUrl = 'https://chat.whatsapp.com/YOUR_GROUP_INVITATION_CODE';
-    
-    // Open WhatsApp group invitation in a new tab
-    window.open(whatsappGroupUrl, '_blank');
-  };
-
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center px-4">
@@ -178,8 +167,6 @@ const RegisterPage: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Registration Successful!</h2>
           <p className="text-gray-600 mb-6">
             Thank you for registering with IIC! We've received your application and will get back to you soon.
-            <br /><br />
-            <span className="text-blue-600 font-medium">WhatsApp will open automatically to join our group.</span>
           </p>
           <Button
             onClick={() => setIsSubmitted(false)}
@@ -358,7 +345,7 @@ const RegisterPage: React.FC = () => {
                   name="mail"
                   value={formData.mail}
                   onChange={handleInputChange}
-                  placeholder="Email Address"
+                  placeholder="mail"
                   required
                   className={`w-full pl-12 pr-4 py-4 border rounded-xl bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
                     errors.mail ? 'border-red-500' : 'border-gray-200 hover:border-blue-300'
@@ -370,93 +357,64 @@ const RegisterPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Reason/Purpose */}
-            <div className="relative">
-              <div className="absolute top-4 left-4 flex items-start pointer-events-none">
-                <FileText className="h-5 w-5 text-gray-400 mt-1" />
-              </div>
-              <textarea
-                name="reasonPurpose"
-                value={formData.reasonPurpose}
-                onChange={handleInputChange}
-                placeholder="Tell us why you want to join IIC and what you hope to achieve..."
-                required
-                rows={4}
-                className={`w-full pl-12 pr-4 py-4 border rounded-xl bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 resize-none ${
-                  errors.reasonPurpose ? 'border-red-500' : 'border-gray-200 hover:border-blue-300'
-                }`}
-              />
-              {errors.reasonPurpose && (
-                <p className="text-red-500 text-sm mt-1 ml-1">{errors.reasonPurpose}</p>
-              )}
-            </div>
-
-            {/* Domain */}
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Target className="h-5 w-5 text-gray-400" />
-              </div>
-              <select
-                name="domain"
-                value={formData.domain}
-                onChange={handleInputChange}
-                required
-                className={`w-full pl-12 pr-4 py-4 border rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 appearance-none cursor-pointer ${
-                  errors.domain ? 'border-red-500' : 'border-gray-200 hover:border-blue-300'
-                }`}
-              >
-                <option value="">Select Your Area of Interest</option>
-                {domains.map((domain) => (
-                  <option key={domain} value={domain}>{domain}</option>
-                ))}
-              </select>
-              <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-              {errors.domain && (
-                <p className="text-red-500 text-sm mt-1 ml-1">{errors.domain}</p>
-              )}
-            </div>
-
-            {/* Submit Button */}
-            <div className="pt-4">
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Submit Registration
-                  </>
+            {/* Reason to join IIC and Domain Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <FileText className="h-5 w-5 text-gray-400" />
+                </div>
+                <textarea
+                  name="reasonPurpose"
+                  value={formData.reasonPurpose}
+                  onChange={handleInputChange}
+                  placeholder="Reason to join IIC"
+                  required
+                  className={`w-full pl-12 pr-4 py-4 border rounded-xl bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ${
+                    errors.reasonPurpose ? 'border-red-500' : 'border-gray-200 hover:border-blue-300'
+                  }`}
+                />
+                {errors.reasonPurpose && (
+                  <p className="text-red-500 text-sm mt-1 ml-1">{errors.reasonPurpose}</p>
                 )}
-              </Button>
-            </div>
-          </form>
-        </motion.div>
+              </div>
 
-        {/* Additional Information */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <div className="bg-gradient-to-r from-blue-50/70 to-purple-50/70 rounded-xl p-6 border border-blue-200">
-            <h3 className="text-lg font-semibold text-blue-900 mb-2">What happens next?</h3>
-            <p className="text-blue-700 text-sm">
-              After submitting your registration, our team will review your application and contact you 
-              within 2-3 business days with next steps and opportunities to get involved.
-            </p>
-          </div>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <Target className="h-5 w-5 text-gray-400" />
+                </div>
+                <select
+                  name="domain"
+                  value={formData.domain}
+                  onChange={handleInputChange}
+                  required
+                  className={`w-full pl-12 pr-4 py-4 border rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 appearance-none cursor-pointer ${
+                    errors.domain ? 'border-red-500' : 'border-gray-200 hover:border-blue-300'
+                  }`}
+                >
+                  <option value="">Select Domain</option>
+                  {domains.map((domain) => (
+                    <option key={domain} value={domain}>{domain}</option>
+                  ))}
+                </select>
+                <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+                {errors.domain && (
+                  <p className="text-red-500 text-sm mt-1 ml-1">{errors.domain}</p>
+                )}
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Register'}
+            </Button>
+          </form>
         </motion.div>
       </div>
     </div>
