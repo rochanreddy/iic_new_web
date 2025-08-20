@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Eye, Target, CheckCircle } from 'lucide-react';
 import { Button } from './ui/button';
+import { useNavigate } from 'react-router-dom';
 
 interface VisionMissionItemProps {
   icon: React.ReactNode;
@@ -82,6 +83,7 @@ function VisionMissionItem({ icon, title, description, features, delay }: Vision
 }
 
 const VisionMission: React.FC = () => {
+  const navigate = useNavigate();
   const visionMissionData = [
     {
       icon: <Eye className="w-8 h-8" />,
@@ -154,9 +156,9 @@ const VisionMission: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex gap-3">
-            <Button onClick={() => (window.location.href = '/about')} className="bg-blue-600 hover:bg-blue-700 text-white">Learn More</Button>
-            <Button onClick={() => (window.location.href = '/contact')} variant="outline">Get Involved</Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button onClick={() => navigate('/about')} className="bg-blue-600 hover:bg-blue-700 text-white">Learn More</Button>
+            <Button onClick={() => navigate('/contact')} variant="outline">Get Involved</Button>
           </div>
         </motion.div>
       </div>

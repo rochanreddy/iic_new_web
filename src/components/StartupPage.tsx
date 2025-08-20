@@ -4,6 +4,7 @@ import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { cn } from "../lib/utils";
 import { Button } from "./ui/button";
+import { useNavigate } from 'react-router-dom';
 
 const TooltipProvider = TooltipPrimitive.Provider;
 const Tooltip = TooltipPrimitive.Root;
@@ -207,6 +208,7 @@ const StepFlowSection: React.FC = () => {
 };
 
 const StartupPage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen pt-20">
       <StepFlowSection />
@@ -217,11 +219,11 @@ const StartupPage: React.FC = () => {
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Stay updated with our latest events and opportunities. Connect with us to be part of the next big innovation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button onClick={() => (window.location.href = '/contact')} className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button onClick={() => navigate('/contact')} className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50">
                 Get Involved
               </Button>
-              <Button onClick={() => (window.location.href = '/register')} className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50">
+              <Button onClick={() => navigate('/register')} className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50">
                 Register Now
               </Button>
             </div>

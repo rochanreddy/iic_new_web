@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
+import { useNavigate } from 'react-router-dom';
 
 type Ambassador = {
   id: number;
@@ -107,6 +108,8 @@ const studentAmbassadors: Ambassador[] = [
 ];
 
 const IEAmbassador: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="navbar-safe-top min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30">
       {/* Header Section */}
@@ -201,13 +204,13 @@ const IEAmbassador: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button 
-              onClick={() => (window.location.href = '/contact')}
+              onClick={() => navigate('/contact')}
               className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
             >
               Get Involved
             </Button>
             <Button 
-              onClick={() => (window.location.href = '/register')}
+              onClick={() => navigate('/register')}
               className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-full font-semibold"
             >
               Register Now
