@@ -127,7 +127,7 @@ const FacultyCoordinators: React.FC = () => {
       branch: "Data Science",
       email: "yash081910@gmail.com",
       phone: "+91 9381994218",
-      image: "/images/team/WhatsApp Image 2025-07-28 at 15.10.35_81ec39a8.jpg"
+      image: "/images/team/yashwanth.jpg"
 
     }
   ];
