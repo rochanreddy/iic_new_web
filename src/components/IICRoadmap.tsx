@@ -172,7 +172,7 @@ const IICRoadmap = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 p-6 rounded-xl border-2 border-blue-300 dark:border-blue-600 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 p-4 md:p-6 rounded-xl border-2 border-blue-300 dark:border-blue-600 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <h5 className="font-bold text-blue-900 dark:text-blue-100 mb-3 text-lg">Key Initiatives</h5>
               <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-2 font-medium">
@@ -194,7 +194,7 @@ const IICRoadmap = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/40 dark:to-purple-800/40 p-6 rounded-xl border-2 border-purple-300 dark:border-purple-600 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/40 dark:to-purple-800/40 p-4 md:p-6 rounded-xl border-2 border-purple-300 dark:border-purple-600 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <h5 className="font-bold text-purple-900 dark:text-purple-100 mb-3 text-lg">Expected Outcomes</h5>
               <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-2 font-medium">
@@ -234,17 +234,17 @@ const IICRoadmap = () => {
           >
             <h5 className="font-bold text-green-900 dark:text-green-100 mb-4 text-xl">Partnership Programs</h5>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-green-200 dark:border-green-700 shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-3xl font-bold text-green-700 dark:text-green-300 mb-1">25+</div>
-                <div className="text-sm font-semibold text-green-800 dark:text-green-200">Industry Partners</div>
+              <div className="text-center p-3 md:p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-green-200 dark:border-green-700 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-2xl md:text-3xl font-bold text-green-700 dark:text-green-300 mb-1">25+</div>
+                <div className="text-xs md:text-sm font-semibold text-green-800 dark:text-green-200">Industry Partners</div>
               </div>
-              <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-blue-200 dark:border-blue-700 shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-1">100+</div>
-                <div className="text-sm font-semibold text-blue-800 dark:text-blue-200">Mentors Network</div>
+              <div className="text-center p-3 md:p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-blue-200 dark:border-blue-700 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-2xl md:text-3xl font-bold text-blue-700 dark:text-blue-300 mb-1">100+</div>
+                <div className="text-xs md:text-sm font-semibold text-blue-800 dark:text-blue-200">Mentors Network</div>
               </div>
-              <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-purple-200 dark:border-purple-700 shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-3xl font-bold text-purple-700 dark:text-purple-300 mb-1">15+</div>
-                <div className="text-sm font-semibold text-purple-800 dark:text-purple-200">Collaboration Projects</div>
+              <div className="text-center p-3 md:p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-purple-200 dark:border-purple-700 shadow-md hover:shadow-lg transition-shadow">
+                <div className="text-2xl md:text-3xl font-bold text-purple-700 dark:text-purple-300 mb-1">15+</div>
+                <div className="text-xs md:text-sm font-semibold text-purple-800 dark:text-purple-200">Collaboration Projects</div>
               </div>
             </div>
           </motion.div>
@@ -266,7 +266,7 @@ const IICRoadmap = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-card border border-border rounded-lg p-5 hover:shadow-md transition-shadow"
+              className="bg-card border border-border rounded-lg p-4 md:p-5 hover:shadow-md transition-shadow"
             >
               <h5 className="font-semibold text-foreground mb-3">Upcoming Events</h5>
               <div className="space-y-2">
@@ -288,7 +288,7 @@ const IICRoadmap = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-card border border-border rounded-lg p-5 hover:shadow-md transition-shadow"
+              className="bg-card border border-border rounded-lg p-4 md:p-5 hover:shadow-md transition-shadow"
             >
               <h5 className="font-semibold text-foreground mb-3">Success Metrics</h5>
               <div className="space-y-3">
@@ -339,29 +339,29 @@ const IICRoadmap = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-orange-950/20 dark:via-red-950/20 dark:to-pink-950/20 p-6 rounded-xl border border-orange-200 dark:border-orange-800"
+            className="bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-orange-950/20 dark:via-red-950/20 dark:to-pink-950/20 p-4 md:p-6 rounded-xl border border-orange-200 dark:border-orange-800"
           >
             <h5 className="font-semibold text-orange-900 dark:text-orange-100 mb-4">Incubation Pipeline</h5>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Lightbulb className="w-6 h-6 text-white" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+              <div className="text-center p-3 md:p-4 bg-white/50 dark:bg-black/20 rounded-lg">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Lightbulb className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <div className="text-sm font-medium text-foreground">Ideation</div>
+                <div className="text-xs md:text-sm font-medium text-foreground">Ideation</div>
                 <div className="text-xs text-muted-foreground mt-1">20+ Ideas</div>
               </div>
-              <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Users className="w-6 h-6 text-white" />
+              <div className="text-center p-3 md:p-4 bg-white/50 dark:bg-black/20 rounded-lg">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Users className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <div className="text-sm font-medium text-foreground">Validation</div>
+                <div className="text-xs md:text-sm font-medium text-foreground">Validation</div>
                 <div className="text-xs text-muted-foreground mt-1">10+ MVPs</div>
               </div>
-              <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <Rocket className="w-6 h-6 text-white" />
+              <div className="text-center p-3 md:p-4 bg-white/50 dark:bg-black/20 rounded-lg">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <Rocket className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <div className="text-sm font-medium text-foreground">Launch</div>
+                <div className="text-xs md:text-sm font-medium text-foreground">Launch</div>
                 <div className="text-xs text-muted-foreground mt-1">2+ Startups</div>
               </div>
             </div>
@@ -370,7 +370,7 @@ const IICRoadmap = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center p-6 bg-card border border-border rounded-xl"
+            className="text-center p-4 md:p-6 bg-card border border-border rounded-xl"
           >
             <h5 className="font-semibold text-foreground mb-2">Join the Innovation Journey</h5>
             <p className="text-muted-foreground text-sm mb-4">
