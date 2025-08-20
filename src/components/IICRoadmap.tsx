@@ -86,7 +86,7 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
       initial={{ opacity: 0, x: -50 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="flex justify-start pt-10 md:pt-40 md:gap-10"
+      className="flex justify-start pt-6 md:pt-40 md:gap-10"
     >
       <div className="sticky flex flex-col md:flex-row z-30 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
         <div className="relative flex flex-col items-center w-10">
@@ -104,8 +104,8 @@ const TimelineItem = ({ item, index }: { item: TimelineEntry; index: number }) =
         </h3>
       </div>
 
-      <div className="relative pl-20 pr-4 md:pl-4 w-full z-0">
-        <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-foreground">
+      <div className="relative pl-16 pr-4 md:pl-4 w-full z-0">
+        <h3 className="md:hidden block text-2xl mb-3 text-left font-bold text-foreground">
           {item.title}
         </h3>
         {item.content}
@@ -160,14 +160,14 @@ const IICRoadmap = () => {
     {
       title: "Empower Student Innovators",
       content: (
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <GoalCard
             icon={Lightbulb}
             title="Innovation Culture"
             description="Foster a culture of innovation by supporting student-led ideas and projects through mentorship programs and funding opportunities."
             delay={0.1}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 md:mt-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -219,7 +219,7 @@ const IICRoadmap = () => {
     {
       title: "Bridge Industry & Academia",
       content: (
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <GoalCard
             icon={Users}
             title="Strategic Partnerships"
@@ -230,10 +230,10 @@ const IICRoadmap = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-br from-green-100 via-blue-100 to-teal-100 dark:from-green-900/40 dark:via-blue-900/40 dark:to-teal-900/40 p-8 rounded-xl border-2 border-green-300 dark:border-green-600 shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="bg-gradient-to-br from-green-100 via-blue-100 to-teal-100 dark:from-green-900/40 dark:via-blue-900/40 dark:to-teal-900/40 p-6 md:p-8 rounded-xl border-2 border-green-300 dark:border-green-600 shadow-xl hover:shadow-2xl transition-all duration-300"
           >
             <h5 className="font-bold text-green-900 dark:text-green-100 mb-4 text-xl">Partnership Programs</h5>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               <div className="text-center p-4 bg-white/60 dark:bg-black/30 rounded-lg border border-green-200 dark:border-green-700 shadow-md hover:shadow-lg transition-shadow">
                 <div className="text-3xl font-bold text-green-700 dark:text-green-300 mb-1">25+</div>
                 <div className="text-sm font-semibold text-green-800 dark:text-green-200">Industry Partners</div>
@@ -254,14 +254,14 @@ const IICRoadmap = () => {
     {
       title: "Enable Real-World Experience",
       content: (
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <GoalCard
             icon={Briefcase}
             title="Hands-on Learning"
             description="Offer internships, hackathons, and micro-projects for hands-on learning experiences that prepare students for the professional world."
             delay={0.1}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -328,7 +328,7 @@ const IICRoadmap = () => {
     {
       title: "Build a Startup Ecosystem",
       content: (
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <GoalCard
             icon={Rocket}
             title="Venture Incubation"
