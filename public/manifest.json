@@ -3,7 +3,7 @@
   "short_name": "IIC",
   "description": "The Innovation & Incubation Council - Empowering the next generation of innovators",
   "start_url": "/",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#ffffff",
   "theme_color": "#3b82f6",
   "orientation": "portrait-primary",
